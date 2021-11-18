@@ -4,7 +4,6 @@
 class LaunchController
 {
 private:
-    /* data */
 public:
     LaunchController(/* args */);
     ~LaunchController();
