@@ -13,9 +13,13 @@ using namespace std;
 
 class ConnectSignal : public Signal
 {
+private:
+	OrbitalControl* OC;
 public:
 	ConnectSignal() : Signal() {};
+	ConnectSignal(OrbitalControl* oc) : Signal(OrbitalControl* oc) {};
 	~ConnectSignal();
+	void execute();
 };
 
 #endif

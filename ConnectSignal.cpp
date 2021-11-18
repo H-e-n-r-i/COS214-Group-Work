@@ -12,6 +12,16 @@ ConnectSignal::ConnectSignal()
 {
 }
 
+ConnectSignal::ConnectSignal(OrbitalControl* oc)
+{
+	OC = oc;
+}
+
 ConnectSignal::~ConnectSignal()
 {
+}
+
+void ConnectSignal::execute()
+{
+	OC->OrbitalConnect();
 }

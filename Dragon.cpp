@@ -15,3 +15,13 @@ Dragon::Dragon()
 Dragon::~Dragon()
 {
 }
+
+void Dragon::handle(LaunchController* lc)
+{
+	lc->setSpacecraft(new CrewDragon());
+}
+
+string Dragon::getSpacecraft()
+{
+	return "Dragon";
+}

@@ -12,6 +12,16 @@ MesssageSignal::MessageSignal()
 {
 }
 
+MessageSignal::MessageSignal(OrbitalControl* oc)
+{
+	OC= oc;	
+}
+
 MessageSignal::~MessageSignal()
 {
+}
+
+void MessageSignal::execute()
+{
+	OC->OrbitalMessage();
 }

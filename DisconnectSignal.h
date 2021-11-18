@@ -13,9 +13,13 @@ using namespace std;
 
 class DisconnectSignal : public Signal
 {
+private:
+	OrbitalControl* OC;
 public:
 	DisconnectSignal() : Signal() {};
+	DisconnectSignal(OrbitalControl* oc) : Signal(OrbitalControl* oc) {};
 	~DisconnectSignal();
+	void execute();
 };
 
 #endif

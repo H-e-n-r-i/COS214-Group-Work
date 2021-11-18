@@ -15,3 +15,18 @@ OrbitalControl::OrbitalControl()
 OrbitalControl::~OrbitalControl()
 {
 }
+
+void OrbitalControl::OrbitalConnect()
+{
+	cout << "Connected."<< endl;
+}
+
+void OrbitalControl::OrbitalMessage()
+{
+	cout << "Message Received."<< endl;
+}
+
+void OrbitalControl::OrbitalDisconnect()
+{
+	cout << "Disconnected." << endl;
+}

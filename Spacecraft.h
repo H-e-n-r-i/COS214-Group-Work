@@ -5,6 +5,7 @@
 #ifndef SPACECRAFT_H
 #define SPACECRAFT_H
 
+#include "LaunchController.h"
 #include <iostream>
 #include <string>
 
@@ -15,6 +16,8 @@ class Spacecraft
 public:
 	Spacecraft();
 	~Spacecraft();
+	virtual void handle(LaunchController* lc) = 0;
+	virtual string getSpacecraft() = 0;
 };
 
 #endif

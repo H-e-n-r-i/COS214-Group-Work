@@ -15,6 +15,9 @@ class OrbitalControl
 public:
 	OrbitalControl();
 	~OrbitalControl();
+	void OrbitalConnect();
+	void OrbitalMessage();
+	void OrbitalDisconnect();
 };
 
 #endif

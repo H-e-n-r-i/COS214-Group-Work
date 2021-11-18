@@ -12,6 +12,16 @@ DisconnectSignal::DisconnectSignal()
 {
 }
 
+DisconnectSignal::DisconnectSignal(OrbitalControl* oc)
+{
+	OC = oc;
+}
+
 DisconnectSignal::~DisconnectSignal()
 {
+}
+
+void DisconnectSignal::execute()
+{
+	OC->OrbitalDisconnect();
 }

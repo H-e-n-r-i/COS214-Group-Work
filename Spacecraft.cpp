@@ -14,4 +14,5 @@ Spacecraft::Spacecraft()
 
 Spacecraft::~Spacecraft()
 {
+
 }

@@ -16,6 +16,8 @@ class Dragon : public Spacecraft
 public:
 	Dragon() : Spacecraft() {};
 	~Dragon();
+	virtual void handle(LaunchController* lc) = 0;
+	virtual string getSpacecraft();
 };
 
 #endif

@@ -12,6 +12,15 @@ Signal::Signal()
 {
 }
 
+Signal::Signal(OrbitalControl* oc)
+{
+	OC = oc;
+}
+
 Signal::~Signal()
+{
+}
+
+void Signal::execute()
 {
 }

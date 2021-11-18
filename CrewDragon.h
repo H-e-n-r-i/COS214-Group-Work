@@ -16,6 +16,8 @@ class CrewDragon : public Spacecraft
 public:
 	CrewDragon() : Spacecraft() {};
 	~CrewDragon();
+	virtual void handle(LaunchController* lc) = 0;
+	virtual string getSpacecraft();
 };
 
 #endif
