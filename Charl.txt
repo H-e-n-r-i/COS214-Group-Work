@@ -1,2 +1,19 @@
+Charl:
 Template
 Observer
+
+Robyn:
+Command
+State
+
+Henri:
+Chain
+Strategy
+
+Nhlamulo:
+RocketHierarchy
+Prototype + AbstractFactory
+
+Johan:
+Mediator
+Singleton
