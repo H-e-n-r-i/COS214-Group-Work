@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //State DP
 // Robyn
 //Context
@@ -14,10 +15,17 @@ LaunchController::LaunchController()
 	SC = new Dragon();
 =======
 >>>>>>> robyn
+=======
+#include "LaunchController.h"
+
+LaunchController::LaunchController(/* args */)
+{
+>>>>>>> henri
 }
 
 LaunchController::~LaunchController()
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	delete SC;
 	SC = 0;
@@ -51,3 +59,6 @@ void LaunchController::setSpacecraft(Spacecraft* sc)
 >>>>>>> robyn
 	SC = sc;
 }
+=======
+}
+>>>>>>> henri
