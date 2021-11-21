@@ -16,14 +16,24 @@ OrbitalControl::~OrbitalControl()
 {
 }
 
+OrbitalControl *OrbitalControl::getOrbit() {
+
+	if (orbit == nullptr)
+	{
+		orbit = new OrbitalControl();
+	}
+
+	return orbit;
+}
+
 void OrbitalControl::OrbitalConnect()
 {
-	cout << "Connected."<< endl;
+	cout << "Connected." << endl;
 }
 
 void OrbitalControl::OrbitalMessage()
 {
-	cout << "Message Received."<< endl;
+	cout << "Message Received." << endl;
 }
 
 void OrbitalControl::OrbitalDisconnect()

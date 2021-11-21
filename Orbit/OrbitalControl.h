@@ -12,12 +12,23 @@ using namespace std;
 
 class OrbitalControl
 {
+
+private:
+	OrbitalControl *orbit;
+
 public:
-	OrbitalControl();
-	~OrbitalControl();
 	void OrbitalConnect();
 	void OrbitalMessage();
 	void OrbitalDisconnect();
+
+	OrbitalControl *getOrbit();
+
+protected:
+	OrbitalControl();
+	~OrbitalControl();
+
+	OrbitalControl(OrbitalControl &) = delete;
+	OrbitalControl &operator=(const OrbitalControl &) = delete;
 };
 
 #endif
