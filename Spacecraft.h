@@ -2,8 +2,11 @@
 //Robyn
 // State
 
+<<<<<<< HEAD
 //Charl: Template
 
+=======
+>>>>>>> robyn
 #ifndef SPACECRAFT_H
 #define SPACECRAFT_H
 
@@ -22,4 +25,8 @@ public:
 	virtual string getSpacecraft() = 0;
 };
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> robyn

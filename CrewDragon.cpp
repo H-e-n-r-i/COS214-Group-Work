@@ -2,8 +2,6 @@
 //Robyn
 //Concrete State
 
-//Charl: Template
-
 #include "CrewDragon.h"
 #include <iostream>
 #include <string>

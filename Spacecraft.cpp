@@ -2,8 +2,11 @@
 //Robyn
 //State
 
+<<<<<<< HEAD
 //Charl: Template
 
+=======
+>>>>>>> robyn
 #include "Spacecraft.h"
 #include <iostream>
 #include <string>

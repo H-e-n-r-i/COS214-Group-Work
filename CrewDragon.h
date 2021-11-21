@@ -2,8 +2,6 @@
 //Robyn
 //Concrete State
 
-//Charl: Template
-
 #ifndef CREWDRAGON_H
 #define CREWDRAGON_H
 

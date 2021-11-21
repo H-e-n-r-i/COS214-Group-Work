@@ -2,8 +2,11 @@
 //Robyn
 //Concrete State
 
+<<<<<<< HEAD
 //Charl: Template
 
+=======
+>>>>>>> robyn
 #include "Dragon.h"
 #include <iostream>
 #include <string>
@@ -26,4 +29,8 @@ void Dragon::handle(LaunchController* lc)
 string Dragon::getSpacecraft()
 {
 	return "Dragon";
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> robyn
