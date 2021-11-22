@@ -4,6 +4,8 @@ DockPhase::DockPhase() : LaunchController() {}
 
 DockPhase::DockPhase(LaunchController *in) : LaunchController(in) {}
 
+DockPhase::~DockPhase() {}
+
 void DockPhase::launch()
 {
     if (orbit != nullptr)
