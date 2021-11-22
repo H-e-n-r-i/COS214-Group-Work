@@ -3,15 +3,15 @@
 #include<list>
 #include<string>
 #include<iostream>
-#include "VaccumMerlinEngine.h"
-#include "MerlinEngine.h"
-#include "Falcon9Core.h"
-#include "EngineState.h"
+#include "../Composition/VaccumMerlinEngine.h"
+#include "../Composition/MerlinEngine.h"
+#include "../Composition/Falcon9Core.h"
+#include "../EngineState/EngineState.h"
 using namespace std;
 
 /**
  * @author Nhlamulo Maluleka
- * @section Abtract Factory
+ * @section Abtract Factory + Observer + Bridge
  */
 
 class Rocket{

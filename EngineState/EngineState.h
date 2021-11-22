@@ -3,6 +3,11 @@
 #include<string>
 using namespace std;
 
+/**
+ * @author Nhlamulo Maluleka
+ * @section Bridge
+ */
+
 class EngineState{
     protected:
         string state;        
