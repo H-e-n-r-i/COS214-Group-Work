@@ -8,7 +8,7 @@ using namespace std;
 
 /**
  * @author Nhlamulo Maluleka
- * @section Composite + Prototype + Observer
+ * @section Composite + Prototype + Observer + Bridge
  */
 
 class Composition{

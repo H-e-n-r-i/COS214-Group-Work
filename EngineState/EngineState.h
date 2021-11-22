@@ -15,8 +15,8 @@ class EngineState{
     public:
         EngineState();
         virtual ~EngineState();
-        void setState(string);
-        virtual string getState();
+        virtual void setState(string);
+        virtual string getState() = 0;
 };
 
 class Running: public EngineState{
