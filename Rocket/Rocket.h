@@ -40,7 +40,8 @@ class Rocket{
         void startEngines();
         void inspectEngines();
         void modifyEngineState();     
-        void notify();   
+        void notify();
+        bool isReadyForLaunch();
         virtual void showStage() = 0;
 
     protected:

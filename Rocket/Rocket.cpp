@@ -188,9 +188,12 @@ void Rocket::inspectEngines(){
  * @brief This modifies a rocket engine based depending of which section of the rocket it is of, either Stage 1 or 2 
  */
 void Rocket::modifyEngineState(){
+    inspectEngines();
+
     int changeState;
     int core = -1;
     int engine = -1;
+    int repair = -1;
     Composition* eng;
 
     cout << endl << "========================================" << endl;
@@ -203,7 +206,7 @@ void Rocket::modifyEngineState(){
         int coreSize = compositions.size();
 
         while(true){
-            cout << "Select Falcon9Core to Modify (1-" << coreSize << "): ";
+            cout << "Select a Falcon9Core to Modify/Repair (1-" << coreSize << "): ";
             cin >> core;
 
             if(core == 999) return;
@@ -262,13 +265,48 @@ void Rocket::modifyEngineState(){
         break;
     }
 
+    --changeState;
+    
     if(core != -1)
-        (*next((*next(compositions.begin(), core))->getEngines().begin(), engine))->setEngineState((*next(engineStates.begin(), --changeState)));
+        (*next((*next(compositions.begin(), core))->getEngines().begin(), engine))->setEngineState((*next(engineStates.begin(), changeState)));
     else
-        (*next(compositions.begin(), 0))->setEngineState((*next(engineStates.begin(), --changeState)));
+        (*next(compositions.begin(), 0))->setEngineState((*next(engineStates.begin(), changeState)));
     
     // Observer notify()
     notify();
+
+    if(!isReadyForLaunch()){
+        inspectEngines();
+
+        cout << endl << "Would you like to repair the engine? \n";
+        cout << "1. Yes\n2. No - Abort Launch\n";
+        cin >> repair;
+
+        if(repair == 1) modifyEngineState();
+        else { cout << endl << ".............Aborting Launch............." << endl << endl; }
+    }
+    else
+        cout << endl << ".............Ready for Launch............." << endl << endl;
+}
+
+bool Rocket::isReadyForLaunch(){
+    list<Composition*>::iterator it;
+
+    for(it = compositions.begin(); it != compositions.end(); it++){
+        if(getStage() == "Stage 1"){
+            list<Composition*> engines = (*it)->getEngines();
+            list<Composition*>::iterator eng;
+
+            for(eng = engines.begin(); eng != engines.end(); eng++)
+                if((*eng)->getEngineState() != (*next(engineStates.begin(), 0))->getState())
+                    return false;
+        }else{
+            if((*it)->getEngineState() != (*next(engineStates.begin(), 0))->getState())
+                    return false;
+        }
+    }
+
+    return true;
 }
 
 void Rocket::notify(){
