@@ -2,7 +2,6 @@
 #define TESTPHASE_H
 
 #include "LaunchController.h"
-#include <vector>
 
 class TestPhase : public LaunchController
 {

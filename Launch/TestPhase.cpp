@@ -84,10 +84,10 @@ std::vector<Crew *> TestPhase::loadCrew()
 }
 void TestPhase::launch()
 {
-    string temp = "";
-    std::cout << "how many satelites would you like to send up?\n";
-    std::cin >> temp;
-    satilite = stoi(temp);
+    // string temp = "";
+    // std::cout << "how many satelites would you like to send up?\n";
+    // std::cin >> temp;
+    // satilite = stoi(temp);
 
     std::vector<Cargo *> cargo = this->loadCargo();
     std::vector<Crew *> crew = this->loadCrew();

@@ -6,8 +6,8 @@
 #include "../Rocket/Configuration/FalconHeavyConfiguration.h"
 #include "../Spacecraft/CrewDragon.h"
 #include "../Spacecraft/Dragon.h"
-#include "../Orbit/OrbitController.h"
-#include "../Orbit/OrbitController.h"
+// #include "../Orbit/OrbitController.h"
+// #include "../Orbit/OrbitController.h"
 
 class LaunchController
 {
@@ -20,7 +20,7 @@ protected:
     ConfigurationController *rocketConfigurator;
     Spacecraft *spacecraft;
     Rocket *rocket;
-    OrbitalControl *orbit;
+    // OrbitalControl *orbit;
 
 public:
     LaunchController();
