@@ -1,16 +1,14 @@
 #ifndef CARGO_H
 #define CARGO_H
 
-class Cargo {
+#include <iostream>
+#include <string>
 
-    private:
-        double weight;
-    
-    public:
-        Cargo();
-        ~Cargo();
 
-        double getWeight();
+class Cargo{
+public:
+	Cargo(int w);
+	int weight;
 };
 
 #endif

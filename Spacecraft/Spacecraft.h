@@ -1,31 +1,36 @@
 #ifndef SPACECRAFT_H
 #define SPACECRAFT_H
 
+#include "../Launch/LaunchController.h"
 #include <vector>
+#include <string>
 
-#include "./Load/Cargo.h"
-
+class LaunchController;
+class Cargo;
 class Spacecraft {
 
-    private:
-        double totalWeight;
-        double baseWeight;
+protected:
+        int totalWeight;
+        int baseWeight;
         std::vector<Cargo*> cargo;
     
     public:
+		Spacecraft();
         Spacecraft(std::vector<Cargo*>);
         ~Spacecraft();
 
         std::vector<Cargo*> getCargo();
 
-        /*
-        * Template method: getTotalWeight
-        * Primitive operation1: calcCrew
-        * Primitive operation2: calcCargo
-        */
-        double getTotalWeight();
-        virtual double calcCrew() = 0;
-        virtual double calcCargo() = 0;
+        
+		//---- State: ----
+		virtual void handleChange(LaunchController* l) = 0;
+    	virtual std::string getSpacecraftName() = 0;
+        
+		//---- Template: ----
+		int getTotalWeight();//template method
+		virtual int calcCrew()=0;//primitive method
+		virtual int calcCargo()=0;//prmitive method
+		//vector<Cargo> getCargo()
 
 };
 
