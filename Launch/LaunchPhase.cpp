@@ -8,6 +8,8 @@ LaunchPhase::LaunchPhase() : LaunchController() {}
 
 LaunchPhase::LaunchPhase(LaunchController *in) : LaunchController(in) {}
 
+LaunchPhase::~LaunchPhase() {}
+
 void LaunchPhase::launch()
 {
     std::cout << "Initiating inspection!\n";
