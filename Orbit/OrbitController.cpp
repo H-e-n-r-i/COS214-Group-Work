@@ -23,8 +23,19 @@ void OrbitalControl::disconnect(string q)
 	satelite->disconnect(q);
 }
 
+int OrbitalControl::getSatelites()
+{
+	return numSatelites;
+}
+
+void OrbitalControl::setSatelites(int n)
+{
+	numSatelites = n;
+}
+
 OrbitalControl::OrbitalControl()
 {
+	numSatelites = 0;
 }
 
 OrbitalControl::~OrbitalControl()
