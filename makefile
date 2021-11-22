@@ -24,13 +24,13 @@ OBJS = ./Rocket/Composition/Composition.o \
 Main.o
 
 all: $(OBJS)
-	$(CC) $(OBJS) -o $(TARGET)
+	$(CC) $(OBJS) -o $(TARGET) -g
 
 run:
 	./$(TARGET)
 
 %.o: %.cpp
-	$(CC) -c $< -o $@
+	$(CC) -c $< -o $@ -g
 
 clean:
 	rm -f $(TARGET) $(OBJS)

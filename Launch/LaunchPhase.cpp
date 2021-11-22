@@ -27,15 +27,12 @@ void LaunchPhase::launch()
         std::this_thread::sleep_for(seconds(1));
         std::cout << i << endl;
     }
-    std::cout << "LIFT OFF!\nStage 1\n";
-    for (int i = 0; i < 99; i++)
-        std::cout << "*";
+    // std::cout << "LIFT OFF!\nStage 1\n";
+    // for (int i = 0; i < 99; i++)
+    //     std::cout << "*";
 
-    for (int i = 9; i >= 0; i--)
-    {
-        std::this_thread::sleep_for(nanoseconds(50));
-        std::cout << "\b\r#";
-    }
+    std::this_thread::sleep_for(milliseconds(100));
+
     std::cout << endl;
 
     std::cout << "Switching to stage 2\n";
@@ -43,14 +40,8 @@ void LaunchPhase::launch()
     rocket = rocketConfigurator->stageTwo();
     rocket->startEngines();
     std::cout << "Final Approach!\n";
-    for (int i = 0; i < 99; i++)
-        std::cout << "*";
 
-    for (int i = 9; i >= 0; i--)
-    {
-        std::this_thread::sleep_for(nanoseconds(50));
-        std::cout << "\b\r#";
-    }
+    std::this_thread::sleep_for(milliseconds(100));
     std::cout << endl
               << "Destination reached\n";
 }
