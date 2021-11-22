@@ -3,13 +3,15 @@
 
 #include "LauncController.h"
 
-class DockPhase : public LaunchController {
+class DockPhase : public LaunchController
+{
 
-    public:
-        DockPhase();
-        ~DockPhase();
+public:
+    DockPhase();
+    DockPhase(LaunchController *);
+    ~DockPhase();
 
-        void launch();
+    void launch();
 };
 
 #endif
