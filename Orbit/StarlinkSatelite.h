@@ -13,6 +13,8 @@ class StarlinkSatelite {
         vecotr<StarlinkSatelite*> satelites;
 
     public:
+        StarlinkSatelite();
+        ~StarlinkSatelite();
         void sendMessage(std::string, std::string);
         void connect(std::string);
         void disconnect(std::string);
