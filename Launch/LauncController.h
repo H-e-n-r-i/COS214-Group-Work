@@ -6,24 +6,25 @@
 #include "../Spacecraft/Dragon.h"
 #include "../Orbit/OrbitController.h"
 
-class LaunchController {
+class LaunchController
+{
 
-    private:
-        double totalWeight;
-        bool hasCrew;
+protected:
+    double totalWeight;
+    bool hasCrew;
 
-        ConfigurationController* rocketConfigurator;
-        Spacecraft* spacecraft;
-        Rocket* rocket;
+    ConfigurationController *rocketConfigurator;
+    Spacecraft *spacecraft;
+    Rocket *rocket;
 
-    public:
-        LaunchController();
-        ~LaunchController();
+public:
+    LaunchController();
+    ~LaunchController();
 
-        bool getHasCrew();
-        void setHasCrew(bool);
+    bool getHasCrew();
+    void setHasCrew(bool);
 
-        virtual void launch() = 0;
+    virtual void launch();
 };
 
 #endif
