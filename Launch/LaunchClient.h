@@ -14,10 +14,15 @@ class LaunchClient
 {
 private:
     LaunchController *controller;
-    
+    bool t, l, d, c;
+
 public:
     LaunchClient(/* args */);
     ~LaunchClient();
+    void Test();
+    void Launch();
+    void Dock();
+    void Complete();
 };
 
 #endif
