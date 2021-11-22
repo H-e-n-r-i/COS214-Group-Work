@@ -5,6 +5,8 @@ using namespace std;
 
 MessageSignal::MessageSignal(string q, string w)
 {
+	s->setID(id);
+	M = w;
 }
 
 MessageSignal::~MessageSignal()
@@ -14,5 +16,5 @@ MessageSignal::~MessageSignal()
 void MessageSignal::signal()
 {
 	OrbitalControl* OC = new OrbitalControl();
-	OC->connect("Send Message");
+	OC->connect(M);
 }
