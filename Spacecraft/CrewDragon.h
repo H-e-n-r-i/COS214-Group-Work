@@ -2,7 +2,7 @@
 #define CREWDRAGON_H
 
 #include "Spacecraft.h"
-#include "./Load/Crew.h"
+#include "Load/Crew.h"
 
 class CrewDragon : public Spacecraft {
 

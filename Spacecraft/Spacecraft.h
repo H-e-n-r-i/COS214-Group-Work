@@ -3,7 +3,7 @@
 
 #include <vector>
 
-#include "./Load/Cargo.h"
+#include "Load/Cargo.h"
 
 class Spacecraft {
 
