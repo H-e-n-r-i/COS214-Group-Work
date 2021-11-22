@@ -8,6 +8,7 @@ class OrbitalControl {
     private:
         OrbitalControl* orbit;
         StarlinkSatelite* satelite;
+        int NumSatelites;
 
     public:
         OrbitalControl *getOrbit();
@@ -15,6 +16,9 @@ class OrbitalControl {
         void sendMessage(std::string, std::string);
         void connect(std::string);
         void disconnect(std::string);
+        void setNumSatelites(int n);
+        int getNumSatelites();
+        void createSatelites(int n);
 
     protected:
         OrbitalControl();
