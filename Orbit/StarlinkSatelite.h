@@ -11,6 +11,7 @@ class StarlinkSatelite {
         StarlinkSatelite* successor;
         //User* user;
         vecotr<StarlinkSatelite*> satelites;
+        bool online;
 
     public:
         StarlinkSatelite();
@@ -20,6 +21,8 @@ class StarlinkSatelite {
         void disconnect(std::string);
         void add(StarlinkSatelite* s);
         void remove();
+        void setOnline(bool o);
+        bool getOnline();
 };
 
 #endif
