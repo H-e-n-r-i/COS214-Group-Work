@@ -24,11 +24,13 @@ void StarlinkSatelite::sendMessage(string q, string w)
 void StarlinkSatelite::connect(string q)
 {
 	successor->connect(q);
+	add(successor);
 }
 
 void StarlinkSatelite::disconnect(string q)
 {
 	successor->disconnect(q);
+	remove()
 }
 
 void StarlinkSatelite::add(StarlinkSatelite* s)
