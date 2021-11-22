@@ -1,12 +1,6 @@
 CC = g++
 TARGET = main
-OBJS = ./Launch/LaunchController.o
-./Launch/DockPhase.o
-./Launch/LaunchPhase.o
-./Launch/TestPhase.o
-./Launch/CompletionPhase.o
-./Launch/LaunchClient.o
-./Rocket/Composition/Composition.o \
+OBJS = ./Rocket/Composition/Composition.o \
 ./Rocket/EngineState/EngineState.o \
 ./Rocket/Composition/MerlinEngine.o \
 ./Rocket/Composition/Falcon9Core.o \
@@ -16,6 +10,12 @@ OBJS = ./Launch/LaunchController.o
 ./Rocket/FalconHeavy.o \
 ./Rocket/Configuration/Falcon9Configuration.o \
 ./Rocket/Configuration/FalconHeavyConfiguration.o \
+./Launch/LaunchController.o \
+./Launch/DockPhase.o \
+./Launch/LaunchPhase.o \
+./Launch/TestPhase.o \
+./Launch/CompletionPhase.o \
+./Launch/LaunchClient.o \
 Main.o
 
 all: $(OBJS)
