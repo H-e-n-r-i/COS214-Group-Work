@@ -26,6 +26,7 @@ class StarlinkSatelite {
         StarlinkSatelite* getHead();
         string getName();
         void setName(string q);
+        void appendBatch(StarlinkSatelite* Node);
 };
 
 #endif
