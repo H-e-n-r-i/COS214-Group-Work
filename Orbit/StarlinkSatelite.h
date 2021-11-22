@@ -1,7 +1,8 @@
 #ifndef STARLINKSATELITE_H
 #define STARLINKSATELITE_H
 
-#include "User.h"
+//#include "User.h"
+#include <string>
 
 class StarlinkSatelite {
     
