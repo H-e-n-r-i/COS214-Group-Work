@@ -6,6 +6,8 @@ TestPhase::TestPhase() : LaunchController(), OptimalValue(0)
 {
 }
 
+TestPhase::~TestPhase() {}
+
 void TestPhase::CheckCase(Spacecraft *in)
 {
     double weight = in->getTotalWeight();
@@ -63,6 +65,7 @@ std::vector<Cargo *> TestPhase::loadCargo()
     {
         cargo.push_back(new Cargo());
     }
+    return cargo;
 }
 
 std::vector<Crew *> TestPhase::loadCrew()
@@ -77,6 +80,7 @@ std::vector<Crew *> TestPhase::loadCrew()
     {
         crew.push_back(new Crew());
     }
+    return crew;
 }
 void TestPhase::launch()
 {

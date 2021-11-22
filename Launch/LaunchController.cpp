@@ -20,3 +20,11 @@ LaunchController::LaunchController(LaunchController *in)
     this->orbit = in->orbit;
     delete in;
 }
+
+LaunchController::~LaunchController()
+{
+    delete rocket;
+    delete rocketConfigurator;
+    delete spacecraft;
+    delete orbit;
+}

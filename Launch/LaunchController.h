@@ -25,7 +25,7 @@ protected:
 public:
     LaunchController();
     LaunchController(LaunchController *);
-    ~LaunchController();
+    virtual ~LaunchController();
 
     bool getHasCrew();
     void setHasCrew(bool);
