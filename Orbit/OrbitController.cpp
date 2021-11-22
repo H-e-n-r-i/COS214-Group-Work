@@ -36,6 +36,7 @@ void OrbitalControl::setNumSatelites(int n)
 
 void OrbitalControl::createSatelites(int n)
 {
+	StarlinkSatelite* next = null;
 	if(n > 60)
 	{
 		cout << "Too many satelites." << endl;
@@ -46,8 +47,13 @@ void OrbitalControl::createSatelites(int n)
 		cout << "No satelites being created." << endl;
 		return;
 	}
-	for(int q = 0; q <= n, q++)
+	StarlinkSatelite* curr = new StarlinkSatelite();
+	curr->next = null;
+	for(int q = 1; q <= n, q++)
 	{
+		StarlinkSatelite* Node = new StarlinkSatelite();
+		curr->next = Node;
+		Node->next = null;
 	}
 }
 
