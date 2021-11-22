@@ -3,24 +3,24 @@
 
 using namespace std;
 
-Signal::Signal()
+Signal::Signal() //Constructor for Signal
 {
   ID = "";
 }
 
-Signal::~Signal()
+Signal::~Signal() //Destructor for Signal
 {}
 
-virtual void Signal::signal()
+virtual void Signal::signal() //execute functions  - virtual
 {
 }
 
-string Signal::getID()
+string Signal::getID() //returns User ID
 {
   return ID;
 }
 
-void Signal::setID(string s)
+void Signal::setID(string s) //sets User ID
 {
   ID = s;
 }
