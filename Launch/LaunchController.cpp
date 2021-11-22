@@ -2,11 +2,11 @@
 
 LaunchController::LaunchController()
 {
-    this->totalWeight = 0;
-    this->hasCrew = false;
-    this->rocketConfigurator = nullptr;
-    this->spacecraft = nullptr;
-    this->rocket = nullptr;
+    // this->totalWeight = 0;
+    // this->hasCrew = false;
+    // this->rocketConfigurator = nullptr;
+    // this->spacecraft = nullptr;
+    // this->rocket = nullptr;
 }
 
 LaunchController::LaunchController(LaunchController *in)

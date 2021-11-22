@@ -11,6 +11,8 @@ private:
     std::vector<Cargo *> loadCargo();
     std::vector<Crew *> loadCrew();
     void CheckCase(Spacecraft *);
+    double optimal(Rocket *);
+    double OptimalValue;
 
 public:
     TestPhase();

@@ -1,6 +1,6 @@
 #include "TestPhase.h"
 
-TestPhase::TestPhase() : LaunchController()
+TestPhase::TestPhase()
 {
 
     std::vector<Cargo *> cargo = this->loadCargo();
@@ -15,13 +15,13 @@ TestPhase::TestPhase() : LaunchController()
 
     nine->setSpaceCraftWeight(weight);
     heavy->setSpaceCraftWeight(weight);
-    if (nine->getOptimalLimit() < heavy->getOptimalLimit())
+    if (optimal(nine) < optimal(heavy))
     {
         rocket = nine;
         delete heavy;
         rocketConfigurator = F9;
         delete FH;
-        totalWeight = nine->getOptimalLimit();
+        OptimalValue = optimal(nine);
     }
     else
     {
@@ -29,7 +29,7 @@ TestPhase::TestPhase() : LaunchController()
         delete nine;
         rocketConfigurator = FH;
         delete F9;
-        totalWeight = rocket->getOptimalLimit();
+        OptimalValue = optimal(heavy);
     }
 
     if (!hasCrew)
@@ -49,7 +49,7 @@ void TestPhase::CheckCase(Spacecraft *in)
 
     nine->setSpaceCraftWeight(weight);
     heavy->setSpaceCraftWeight(weight);
-    if (nine->getOptimalLimit() < heavy->getOptimalLimit() && nine->getOptimalLimit() < rocket->getOptimalLimit())
+    if (optimal(nine) < optimal(heavy) && optimal(nine) < optimal(rocket))
     {
         delete rocket;
         rocket = nine;
@@ -57,14 +57,14 @@ void TestPhase::CheckCase(Spacecraft *in)
         delete rocketConfigurator;
         rocketConfigurator = F9;
         delete FH;
-        totalWeight = nine->getOptimalLimit();
+        OptimalValue = optimal(nine);
         delete spacecraft;
         spacecraft = in;
         return;
     }
     else
     {
-        if (heavy->getOptimalLimit() < rocket->getOptimalLimit())
+        if (optimal(heavy) < optimal(rocket))
         {
             delete rocket;
             rocket = heavy;
@@ -72,13 +72,18 @@ void TestPhase::CheckCase(Spacecraft *in)
             delete rocketConfigurator;
             rocketConfigurator = FH;
             delete F9;
-            totalWeight = rocket->getOptimalLimit();
+            OptimalValue = optimal(heavy);
             delete spacecraft;
             spacecraft = in;
             return;
         }
     }
     delete in;
+}
+
+double TestPhase::optimal(Rocket *in)
+{
+    return in->getTotalWeight() * in->getMultiplier();
 }
 
 std::vector<Cargo *> TestPhase::loadCargo()
