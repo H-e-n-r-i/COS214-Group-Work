@@ -11,10 +11,11 @@ class StarlinkSatelite {
         StarlinkSatelite* head;
         //User* user;
         bool Online;
-        string name;
+        string Name;
 
     public:
         StarlinkSatelite();
+        StarlinkSatelite(string n);
         ~StarlinkSatelite();
         void sendMessage(std::string, std::string);
         void connect(std::string);
