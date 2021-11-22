@@ -10,6 +10,7 @@ class TestPhase : public LaunchController
 private:
     std::vector<Cargo *> loadCargo();
     std::vector<Crew *> loadCrew();
+    void CheckCase(Spacecraft *);
 
 public:
     TestPhase();

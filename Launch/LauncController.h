@@ -2,6 +2,8 @@
 #define LAUNCHCONTROLLER_H
 
 #include "../Rocket/Configuration/ConfigurationController.h"
+#include "../Rocket/Configuration/Falcon9Configuration.h"
+#include "../Rocket/Configuration/FalconHeavyConfiguration.h"
 #include "../Spacecraft/CrewDragon.h"
 #include "../Spacecraft/Dragon.h"
 #include "../Orbit/OrbitController.h"
