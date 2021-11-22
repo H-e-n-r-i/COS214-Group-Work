@@ -7,7 +7,9 @@ class User {
 
     private:
         std::string uID;
-        Signal *signal;
+        Signal *Connectsignal;
+        Signal* Disconnectsignal;
+        Signal* Messagesignal;
     
     public:
         User(std::string);
