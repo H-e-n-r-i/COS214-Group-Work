@@ -3,16 +3,16 @@
 
 using namespace std;
 
-DisconnectSignal::DisconnectSignal(string id)
+DisconnectSignal::DisconnectSignal(string id) //Constructor for DisconnectSignal
 {
 	s->setID(id);
 }
 
-DisconnectSignal::~DisconnectSignal()
+DisconnectSignal::~DisconnectSignal() //Destructor for DisconnectSignal
 {
 }
 
-void DisconnectSignal::signal()
+void DisconnectSignal::signal()//execute function
 {
 	OrbitalControl* OC = new OrbitalControl();
 	OC->connect("Disconnect");
