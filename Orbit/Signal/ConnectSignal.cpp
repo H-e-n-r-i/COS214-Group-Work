@@ -5,6 +5,7 @@ using namespace std;
 
 ConnectSignal::ConnectSignal(String id)
 {
+	s->setID(id);
 }
 
 ConnectSignal::~ConnectSignal()
