@@ -19,8 +19,6 @@ protected:
         Spacecraft(std::vector<Cargo*>);
         ~Spacecraft();
 
-        std::vector<Cargo*> getCargo();
-
         
 		//---- State: ----
 		virtual void handleChange(LaunchController* l) = 0;

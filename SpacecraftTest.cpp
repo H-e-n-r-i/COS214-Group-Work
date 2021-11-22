@@ -4,24 +4,25 @@
 #include "Spacecraft/Load/Crew.h"
 #include "Spacecraft/Load/Cargo.h"
 #include <vector>
+#include <iostream>
 
 int main() {
 	LaunchController* lc = new LaunchController();
 	
 	//---- TEST STATE ----//
-	cout<<"SWAPPING BETWEEN SPACECRAFTS:"<<endl;
+	std::cout<<"SWAPPING BETWEEN SPACECRAFTS:"<<std::endl;
 	for(int i=0; i<4; i++){
-		cout<<"Current space craft: "<<lc->getSpacecraftName()<<endl;
-		cout<<"Changing spacecraft...."<<endl<<endl;
+		std::cout<<"Current space craft: "<<lc->getSpacecraftName()<<std::endl;
+		std::cout<<"Changing spacecraft...."<<std::endl<<std::endl;
 		lc->changeSpacecraft();
 	}
-	cout<<"Current space craft: "<<lc->getSpacecraftName()<<endl;
-	cout<<"____________________________________"<<endl<<endl;
+	std::cout<<"Current space craft: "<<lc->getSpacecraftName()<<std::endl;
+	std::cout<<"____________________________________"<<std::endl<<std::endl;
 	delete lc;
 	
 	
 	//---- TEST TEMPLATE ----//
-	cout<<"LOADING DRAGON AND CREWDRAGON:"<<endl;
+	std::cout<<"LOADING DRAGON AND CREWDRAGON:"<<std::endl;
 	// 1: DRAGON
 	Spacecraft* dragon;
 	
@@ -30,7 +31,7 @@ int main() {
 		cargo.push_back(new Cargo(20));//load cargo
 		
 	dragon=new Dragon(cargo);
-	cout<<"Dragon weight: "<<dragon->getTotalWeight()<<endl;
+	std::cout<<"Dragon weight: "<<dragon->getTotalWeight()<<std::endl;
 	
 	// 2: CREWDRAGON
 	Spacecraft* crewDragon;
@@ -40,7 +41,7 @@ int main() {
 		crew.push_back(new Crew());//load crew
 	
 	crewDragon=new CrewDragon(cargo,crew);
-	cout<<"Crew dragon weight: "<<crewDragon->getTotalWeight()<<endl;
+	std::cout<<"Crew dragon weight: "<<crewDragon->getTotalWeight()<<std::endl;
 	
 	
 	return 0;
