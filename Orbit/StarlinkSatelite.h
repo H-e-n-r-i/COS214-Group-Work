@@ -9,6 +9,7 @@ class StarlinkSatelite {
     private:
         StarlinkSatelite* successor;
         StarlinkSatelite* head;
+        StarlinkSatelite* curr;
         //User* user;
         bool Online;
         string Name;
