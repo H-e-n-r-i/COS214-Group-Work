@@ -1,28 +1,28 @@
-#include "User.h"
+#include "User.h" //The Invoker
 #include <string>
 
 using namespace std;
 
-User::User(string q)
+User::User(string q) //Constructor for User
 {
 	uID = q;
 }
 
-User::~User()
+User::~User() //Destructor for User
 {
 }
 
-void User::connect(string q)
+void User::connect(string q) //Calls the ConnectSignal function
 {
-	signal->signal();
+	Connectsignal->signal();
 }
 
-void User::disconnect(string q)
+void User::disconnect(string q) //Calls the DisconnectSignal function
 {
-	signal->signal();
+	Disconnectsignal->signal();
 }
 
-void User::sendMessage(string id, string message)
+void User::sendMessage(string id, string message) //Calls the MessageSignal function
 {
-	signal->signal();
+	Messagesignal->signal();
 }
