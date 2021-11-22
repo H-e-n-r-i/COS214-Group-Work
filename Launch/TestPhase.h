@@ -1,7 +1,7 @@
 #ifndef TESTPHASE_H
 #define TESTPHASE_H
 
-#include "LauncController.h"
+#include "LaunchController.h"
 #include <vector>
 
 class TestPhase : public LaunchController

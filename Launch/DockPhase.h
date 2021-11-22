@@ -1,7 +1,7 @@
 #ifndef DOCKPHASE_H
 #define DOCKPHASE_H
 
-#include "LauncController.h"
+#include "LaunchController.h"
 
 class DockPhase : public LaunchController
 {

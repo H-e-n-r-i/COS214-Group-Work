@@ -1,7 +1,7 @@
 #ifndef LAUNCHPHASE_H
 #define LAUNCHPHASE_H
 
-#include "LauncController.h"
+#include "LaunchController.h"
 
 class LaunchPhase : public LaunchController
 {

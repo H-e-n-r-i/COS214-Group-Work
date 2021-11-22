@@ -31,7 +31,7 @@ void TestPhase::CheckCase(Spacecraft *in)
     }
     else
     {
-        if (optimal(heavy) < optimal(rocket))
+        if (optimal(heavy) < optimal(rocket) && satilite == 0)
         {
             delete rocket;
             rocket = heavy;
@@ -80,6 +80,10 @@ std::vector<Crew *> TestPhase::loadCrew()
 }
 void TestPhase::launch()
 {
+    string temp = "";
+    std::cout << "how many satelites would you like to send up?\n";
+    std::cin >> temp;
+    satilite = stoi(temp);
 
     std::vector<Cargo *> cargo = this->loadCargo();
     std::vector<Crew *> crew = this->loadCrew();
@@ -93,7 +97,7 @@ void TestPhase::launch()
 
     nine->setSpaceCraftWeight(weight);
     heavy->setSpaceCraftWeight(weight);
-    if (optimal(nine) < optimal(heavy))
+    if (optimal(nine) < optimal(heavy) || satilite != 0)
     {
         rocket = nine;
         delete heavy;

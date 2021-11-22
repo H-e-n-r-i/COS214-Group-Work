@@ -1,15 +1,16 @@
 #ifndef COMPLETIONPHASE_H
 #define COMPLETIONPHASE_H
 
-#include "LauncController.h"
+#include "LaunchController.h"
 
-class CompletionPhase : public LaunchController {
+class CompletionPhase : public LaunchController
+{
 
-    public:
-        CompletionPhase();
-        ~CompletionPhase();
-
-        void launch();
+public:
+    CompletionPhase();
+    CompletionPhase(LaunchController *);
+    ~CompletionPhase();
+    void launch();
 };
 
 #endif

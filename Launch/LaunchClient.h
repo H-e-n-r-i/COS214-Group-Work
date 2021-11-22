@@ -1,7 +1,11 @@
 #ifndef LAUNCHCLIENT__H
 #define LAUNCHCLIENT__H
 
-#include "LauncController.h"
+#include "LaunchController.h"
+#include "TestPhase.h"
+#include "DockPhase.h"
+#include "CompletionPhase.h"
+#include "LaunchPhase.h"
 #include <string>
 
 using namespace std;
@@ -10,8 +14,7 @@ class LaunchClient
 {
 private:
     LaunchController *controller;
-    string phase;
-
+    
 public:
     LaunchClient(/* args */);
     ~LaunchClient();
