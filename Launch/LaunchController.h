@@ -7,7 +7,7 @@
 #include "../Spacecraft/CrewDragon.h"
 #include "../Spacecraft/Dragon.h"
 #include "../Orbit/OrbitController.h"
-#include "OrbitController.h"
+#include "../Orbit/OrbitController.h"
 
 class LaunchController
 {
@@ -25,7 +25,7 @@ protected:
 public:
     LaunchController();
     LaunchController(LaunchController *);
-    ~LaunchController();
+    virtual ~LaunchController();
 
     bool getHasCrew();
     void setHasCrew(bool);
