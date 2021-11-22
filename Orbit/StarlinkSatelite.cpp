@@ -6,6 +6,7 @@ using namespace std;
 StarlinkSatelite::StarlinkSatelite()
 {
 	head = null;
+	Name = "";
 }
 
 StarlinkSatelite::StarlinkSatelite(string n)
@@ -43,6 +44,7 @@ void StarlinkSatelite::connect(string q)
 		head = newNode;
 		newNode->connect(q);
 		successor = null;
+		newNode->successor = successor;
 	}
 	else
 	{
