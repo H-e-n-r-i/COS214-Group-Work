@@ -8,7 +8,7 @@ class OrbitalControl {
     private:
         OrbitalControl* orbit;
         StarlinkSatelite* satelite;
-        int NumSatelites;
+        int numSatelites;
 
     public:
         OrbitalControl *getOrbit();
