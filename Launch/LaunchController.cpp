@@ -23,14 +23,17 @@ LaunchController::LaunchController(LaunchController *in)
 
 LaunchController::~LaunchController()
 {
-    delete rocket;
-    delete rocketConfigurator;
-    delete spacecraft;
-    // delete orbit;
 }
 
 void LaunchController::setSpacecraft(Spacecraft *in)
 {
     delete spacecraft;
     spacecraft = in;
+}
+
+void LaunchController::clear()
+{
+    delete rocket;
+    delete rocketConfigurator;
+    delete spacecraft;
 }

@@ -27,6 +27,7 @@ public:
     LaunchController();
     LaunchController(LaunchController *);
     virtual ~LaunchController();
+    void clear();
 
     bool getHasCrew();
     void setHasCrew(bool);

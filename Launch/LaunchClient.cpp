@@ -8,6 +8,7 @@ LaunchClient::LaunchClient(/* args */)
 
 LaunchClient::~LaunchClient()
 {
+    controller->clear();
     delete controller;
 }
 
@@ -76,6 +77,7 @@ void LaunchClient::Complete()
 
 void LaunchClient::resetLaunch()
 {
+    controller->clear();
     delete controller;
     t = false;
     d = false;
