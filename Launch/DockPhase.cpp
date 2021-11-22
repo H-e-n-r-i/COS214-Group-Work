@@ -9,7 +9,7 @@ DockPhase::~DockPhase() {}
 void DockPhase::launch()
 {
     // if (orbit != nullptr)
-    {
+    // {
         // std::cout << "Releasing satelites\n";
         // if (satilite > 60)
         //     satilite = 60;

@@ -6,6 +6,7 @@
 #include "../Rocket/Configuration/FalconHeavyConfiguration.h"
 #include "../Spacecraft/CrewDragon.h"
 #include "../Spacecraft/Dragon.h"
+#include "../Spacecraft/Spacecraft.h"
 // #include "../Orbit/OrbitController.h"
 // #include "../Orbit/OrbitController.h"
 
@@ -29,8 +30,8 @@ public:
 
     bool getHasCrew();
     void setHasCrew(bool);
-
-    virtual void launch();
+    void setSpacecraft(Spacecraft *);
+    virtual void launch() = 0;
 };
 
 #endif

@@ -57,13 +57,14 @@ double TestPhase::optimal(Rocket *in)
 
 std::vector<Cargo *> TestPhase::loadCargo()
 {
+    srand(time(nullptr));
     int in = 0;
     std::vector<Cargo *> cargo;
     std::cout << "How many items of cargo would you like to load?/n";
     std::cin >> in;
     for (int i = 0; i < in; i++)
     {
-        cargo.push_back(new Cargo());
+        cargo.push_back(new Cargo(rand()%50));
     }
     return cargo;
 }

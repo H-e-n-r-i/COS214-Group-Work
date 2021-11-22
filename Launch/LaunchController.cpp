@@ -28,3 +28,9 @@ LaunchController::~LaunchController()
     delete spacecraft;
     // delete orbit;
 }
+
+void LaunchController::setSpacecraft(Spacecraft *in)
+{
+    delete spacecraft;
+    spacecraft = in;
+}
