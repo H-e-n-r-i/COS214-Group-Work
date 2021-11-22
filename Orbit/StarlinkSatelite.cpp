@@ -1,6 +1,5 @@
 #include "StarlinkSatelite.h"
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -9,11 +8,6 @@ StarlinkSatelite::StarlinkSatelite()
 
 StarlinkSatelite::~StarlinkSatelite()
 {
-	vector<StarlinkSatelite*>::iterator it;
-	for(it = satelites.begin(); it!=satelites.end(); ++it)
-	{
-		delete *it;
-	}
 }
 
 void StarlinkSatelite::sendMessage(string q, string w)
@@ -24,21 +18,19 @@ void StarlinkSatelite::sendMessage(string q, string w)
 void StarlinkSatelite::connect(string q)
 {
 	successor->connect(q);
-	add(successor);
 }
 
 void StarlinkSatelite::disconnect(string q)
 {
 	successor->disconnect(q);
-	remove()
 }
 
-void StarlinkSatelite::add(StarlinkSatelite* s)
+bool StarlinkSatelite::getOnline()
 {
-	satelites.push_back(s);
+	return Online;
 }
 
-void StarlinkSatelite::remove()
+void StarlinkSatelite::setOnline(bool o)
 {
-	satelites.pop_back();
+	Online = o;
 }
