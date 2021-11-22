@@ -1,7 +1,7 @@
 #ifndef CONFIGURATIONCONTROLLER_H
 #define CONFIGURATIONCONTROLLER_H
-#include "../Rocket/Falcon9.h"
-#include "../Rocket/FalconHeavy.h"
+#include "../Falcon9.h"
+#include "../FalconHeavy.h"
 
 /**
  * @author Nhlamulo Maluleka

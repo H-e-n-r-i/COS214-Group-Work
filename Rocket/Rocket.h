@@ -3,10 +3,10 @@
 #include<list>
 #include<string>
 #include<iostream>
-#include "../Composition/VaccumMerlinEngine.h"
-#include "../Composition/MerlinEngine.h"
-#include "../Composition/Falcon9Core.h"
-#include "../EngineState/EngineState.h"
+#include "./Composition/VaccumMerlinEngine.h"
+#include "./Composition/MerlinEngine.h"
+#include "./Composition/Falcon9Core.h"
+#include "./EngineState/EngineState.h"
 using namespace std;
 
 /**
