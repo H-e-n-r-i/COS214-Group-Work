@@ -5,6 +5,7 @@ using namespace std;
 
 DisconnectSignal::DisconnectSignal(string id)
 {
+	s->setID(id);
 }
 
 DisconnectSignal::~DisconnectSignal()
