@@ -6,12 +6,15 @@
 #include "../OrbitController.h"
 
 class Signal {
-
+    private:
+        string ID;
     public:
         Signal();
         ~Signal();
 
-        virtual void singal() = 0;
+        virtual void signal() = 0;
+        string getID();
+        void setID(string s);
 };
 
 #endif
