@@ -3,17 +3,17 @@
 
 using namespace std;
 
-MessageSignal::MessageSignal(string q, string w)
+MessageSignal::MessageSignal(string q, string w) //Constructor for MessageSignal
 {
 	s->setID(id);
 	M = w;
 }
 
-MessageSignal::~MessageSignal()
+MessageSignal::~MessageSignal() //Deconstructor for Message Signal
 {
 }
 
-void MessageSignal::signal()
+void MessageSignal::signal() //Execute function
 {
 	OrbitalControl* OC = new OrbitalControl();
 	OC->connect(M);
