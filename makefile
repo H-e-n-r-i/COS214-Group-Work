@@ -1,6 +1,12 @@
 CC = g++
 TARGET = main
-OBJS = ./Rocket/Composition/Composition.o \
+OBJS = ./Launch/LaunchController.o
+./Launch/DockPhase.o
+./Launch/LaunchPhase.o
+./Launch/TestPhase.o
+./Launch/CompletionPhase.o
+./Launch/LaunchClient.o
+./Rocket/Composition/Composition.o \
 ./Rocket/EngineState/EngineState.o \
 ./Rocket/Composition/MerlinEngine.o \
 ./Rocket/Composition/Falcon9Core.o \
