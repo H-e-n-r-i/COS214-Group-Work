@@ -8,8 +8,9 @@ class StarlinkSatelite {
     
     private:
         StarlinkSatelite* successor;
+        StarlinkSatelite* head;
         //User* user;
-        bool online;
+        bool Online;
 
     public:
         StarlinkSatelite();
@@ -19,6 +20,7 @@ class StarlinkSatelite {
         void disconnect(std::string);
         void setOnline(bool o);
         bool getOnline();
+        StarlinkSatelite* getHead();
 };
 
 #endif
