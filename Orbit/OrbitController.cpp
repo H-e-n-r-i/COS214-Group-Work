@@ -10,14 +10,17 @@ OrbitalControl* OrbitalControl::getOrbit()
 
 void OrbitalControl::sendMessage(string q, string w)
 {
+	satelite->sendMessage(q, w);
 }
 
 void OrbitalControl::connect(string q)
 {
+	satelite->connect(q);
 }
 
 void OrbitalControl::disconnect(string q)
 {
+	satelite->disconnect(q);
 }
 
 OrbitalControl::OrbitalControl()
