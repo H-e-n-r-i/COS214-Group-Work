@@ -10,7 +10,6 @@ public:
     DockPhase();
     DockPhase(LaunchController *);
     ~DockPhase();
-
     void launch();
 };
 

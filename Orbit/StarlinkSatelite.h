@@ -10,7 +10,7 @@ class StarlinkSatelite {
     private:
         StarlinkSatelite* successor;
         //User* user;
-        vecotr<StarlinkSatelite*> satelites;
+        vector<StarlinkSatelite*> satelites;
 
     public:
         StarlinkSatelite();
