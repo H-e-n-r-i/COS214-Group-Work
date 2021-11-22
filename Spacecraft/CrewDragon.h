@@ -1,20 +1,24 @@
-#ifndef CREWDRAGON_H
-#define CREWDRAGON_H
+#ifndef CREWDRAGON__H
+#define CREWDRAGON__H
 
 #include "Spacecraft.h"
-#include "./Load/Crew.h"
+#include <vector>
+#include <string>
 
-class CrewDragon : public Spacecraft {
+class LaunchController;
 
-    private:
-        std::vector<Crew*> crew;
+class CrewDragon : public Spacecraft
+{
+private:
+	std::vector<Crew *> crew;
 
-    public:
-        CrewDragon(std::vector<Cargo*>, std::vector<Crew*>);
-        ~CrewDragon();
-
-        double calcCrew();
-        double calcCargo();
+public:
+	CrewDragon();
+	CrewDragon(std::vector<Cargo *> c, std::vector<Crew *> cr);
+	void handleChange(LaunchController *l);
+	std::string getSpacecraftName();
+	int calcCrew();	 //primitive
+	int calcCargo(); //primitive
 };
 
 #endif

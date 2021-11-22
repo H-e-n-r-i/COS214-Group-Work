@@ -1,18 +1,14 @@
 #ifndef CREW_H
 #define CREW_H
 
-#include <stdlib.h>
 
-class Crew {
+#include <iostream>
+#include <string>
 
-    private:
-        double weight;
-    
-    public:
-        Crew();
-        ~Crew();
-
-        double getWeight();
+class Crew{
+public:
+	Crew();//generate random weight
+	int weight;
 };
 
 #endif

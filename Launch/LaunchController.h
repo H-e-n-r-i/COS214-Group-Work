@@ -6,8 +6,9 @@
 #include "../Rocket/Configuration/FalconHeavyConfiguration.h"
 #include "../Spacecraft/CrewDragon.h"
 #include "../Spacecraft/Dragon.h"
-#include "../Orbit/OrbitController.h"
-#include "../Orbit/OrbitController.h"
+#include "../Spacecraft/Spacecraft.h"
+// #include "../Orbit/OrbitController.h"
+// #include "../Orbit/OrbitController.h"
 
 class LaunchController
 {
@@ -20,7 +21,7 @@ protected:
     ConfigurationController *rocketConfigurator;
     Spacecraft *spacecraft;
     Rocket *rocket;
-    OrbitalControl *orbit;
+    // OrbitalControl *orbit;
 
 public:
     LaunchController();
@@ -29,8 +30,8 @@ public:
 
     bool getHasCrew();
     void setHasCrew(bool);
-
-    virtual void launch();
+    void setSpacecraft(Spacecraft *);
+    virtual void launch() = 0;
 };
 
 #endif

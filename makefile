@@ -10,19 +10,17 @@ OBJS = ./Rocket/Composition/Composition.o \
 ./Rocket/FalconHeavy.o \
 ./Rocket/Configuration/Falcon9Configuration.o \
 ./Rocket/Configuration/FalconHeavyConfiguration.o \
+./Spacecraft/Load/Crew.o \
+./Spacecraft/Load/Cargo.o\
+./Spacecraft/Spacecraft.o \
+./Spacecraft/Dragon.o \
+./Spacecraft/CrewDragon.o \
 ./Launch/LaunchController.o \
 ./Launch/DockPhase.o \
 ./Launch/LaunchPhase.o \
 ./Launch/TestPhase.o \
 ./Launch/CompletionPhase.o \
 ./Launch/LaunchClient.o \
-./Orbit/OrbitController.o \
-./Orbit/StarlinkSatelite.o \
-./Orbit/User.o \
-./Orbit/Signal/Signal.o \
-./Orbit/Signal/ConnectSignal.o \
-./Orbit/Signal/DisconnectSignal.o \
-./Orbit/Signal/MessageSignal.o \
 Main.o
 
 all: $(OBJS)

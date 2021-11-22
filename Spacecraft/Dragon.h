@@ -2,15 +2,17 @@
 #define DRAGON_H
 
 #include "Spacecraft.h"
+#include <string>
 
 class Dragon : public Spacecraft {
 
     public:
-        Dragon(std::vector<Cargo*>);
-        ~Dragon();
-
-        double calcCrew();
-        double calcCargo();
+		Dragon();
+		Dragon(std::vector<Cargo*> c);
+		void handleChange(LaunchController*);
+    	std::string getSpacecraftName();
+		int calcCrew();//primitive
+		int calcCargo();//primitive
 };
 
 #endif

@@ -23,6 +23,7 @@ public:
     void Launch();
     void Dock();
     void Complete();
+    void resetLaunch();
 };
 
 #endif

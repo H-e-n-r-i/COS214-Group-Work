@@ -7,7 +7,7 @@ LaunchController::LaunchController()
     this->rocketConfigurator = nullptr;
     this->spacecraft = nullptr;
     this->rocket = nullptr;
-    this->orbit = nullptr;
+    // this->orbit = nullptr;
 }
 
 LaunchController::LaunchController(LaunchController *in)
@@ -17,7 +17,7 @@ LaunchController::LaunchController(LaunchController *in)
     this->rocketConfigurator = in->rocketConfigurator;
     this->rocket = in->rocket;
     this->spacecraft = in->spacecraft;
-    this->orbit = in->orbit;
+    // this->orbit = in->orbit;
     delete in;
 }
 
@@ -26,5 +26,11 @@ LaunchController::~LaunchController()
     delete rocket;
     delete rocketConfigurator;
     delete spacecraft;
-    delete orbit;
+    // delete orbit;
+}
+
+void LaunchController::setSpacecraft(Spacecraft *in)
+{
+    delete spacecraft;
+    spacecraft = in;
 }

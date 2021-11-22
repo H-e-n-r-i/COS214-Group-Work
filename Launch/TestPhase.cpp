@@ -57,13 +57,14 @@ double TestPhase::optimal(Rocket *in)
 
 std::vector<Cargo *> TestPhase::loadCargo()
 {
+    srand(time(nullptr));
     int in = 0;
     std::vector<Cargo *> cargo;
-    std::cout << "How many items of cargo would you like to load?/n";
+    std::cout << "How many items of cargo would you like to load?\n";
     std::cin >> in;
     for (int i = 0; i < in; i++)
     {
-        cargo.push_back(new Cargo());
+        cargo.push_back(new Cargo(rand()%50));
     }
     return cargo;
 }
@@ -84,10 +85,10 @@ std::vector<Crew *> TestPhase::loadCrew()
 }
 void TestPhase::launch()
 {
-    string temp = "";
-    std::cout << "how many satelites would you like to send up?\n";
-    std::cin >> temp;
-    satilite = stoi(temp);
+    // string temp = "";
+    // std::cout << "how many satelites would you like to send up?\n";
+    // std::cin >> temp;
+    // satilite = stoi(temp);
 
     std::vector<Cargo *> cargo = this->loadCargo();
     std::vector<Crew *> crew = this->loadCrew();
@@ -123,5 +124,5 @@ void TestPhase::launch()
         Spacecraft *temp = new CrewDragon(cargo, crew);
         CheckCase(temp);
     }
-    std::cout << "Rockets have been loaded and are waiting launch sequence!/n";
+    std::cout << "Rockets have been loaded and are waiting launch sequence!\n";
 }
