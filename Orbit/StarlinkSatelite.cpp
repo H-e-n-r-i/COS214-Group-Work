@@ -8,6 +8,12 @@ StarlinkSatelite::StarlinkSatelite()
 	head = null;
 }
 
+StarlinkSatelite::StarlinkSatelite(string n)
+{
+	head = null;
+	Name = n;
+}
+
 StarlinkSatelite::~StarlinkSatelite()
 {
 }
