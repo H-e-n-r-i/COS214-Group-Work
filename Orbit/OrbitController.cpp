@@ -4,37 +4,37 @@
 
 using namespace std;
 
-OrbitalControl* OrbitalControl::getOrbit()
+OrbitalControl* OrbitalControl::getOrbit() //returns the orbit
 {
 	return orbit;
 }
 
-void OrbitalControl::sendMessage(string q, string w)
+void OrbitalControl::sendMessage(string q, string w) //sends a message to a satelite
 {
 	satelite->sendMessage(q, w);
 }
 
-void OrbitalControl::connect(string q)
+void OrbitalControl::connect(string q) //connects a satelite
 {
 	satelite->connect(q);
 }
 
-void OrbitalControl::disconnect(string q)
+void OrbitalControl::disconnect(string q) //disconnects a satelite
 {
 	satelite->disconnect(q);
 }
 
-int OrbitalControl::getNumSatelites()
+int OrbitalControl::getNumSatelites() //returns the number of satelites
 {
 	return numSatelites;
 }
 
-void OrbitalControl::setNumSatelites(int n)
+void OrbitalControl::setNumSatelites(int n) //sets the number of satelites
 {
 	numSatelites = n;
 }
 
-void OrbitalControl::createSatelites(int n)
+void OrbitalControl::createSatelites(int n) //creates a batch of satelites
 {
 	StarlinkSatelite* next = null;
 	if(n > 60)
@@ -47,6 +47,9 @@ void OrbitalControl::createSatelites(int n)
 		cout << "No satelites being created." << endl;
 		return;
 	}
+	int num = getNumSatelites();
+	num += n;
+	setNumSatelites(num);
 	StarlinkSatelite* curr = new StarlinkSatelite();
 	StarlinkSatelite* head = curr;
 	curr->next = null;
@@ -59,12 +62,12 @@ void OrbitalControl::createSatelites(int n)
 	satelite->appendBatch(head);
 }
 
-OrbitalControl::OrbitalControl()
+OrbitalControl::OrbitalControl() //constructor for OrbitalControl
 {
 	numSatelites = 0;
 }
 
-OrbitalControl::~OrbitalControl()
+OrbitalControl::~OrbitalControl() //destructor for OrbitalControl
 {
 }
 
