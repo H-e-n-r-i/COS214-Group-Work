@@ -2,6 +2,8 @@
 #define ORBITALCONTROL_H
 
 #include "StarlinkSatelite.h"
+#include <string>
+#include <iostream>
 
 class OrbitalControl
 {

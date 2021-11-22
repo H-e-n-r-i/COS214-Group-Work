@@ -16,6 +16,13 @@ OBJS = ./Rocket/Composition/Composition.o \
 ./Launch/TestPhase.o \
 ./Launch/CompletionPhase.o \
 ./Launch/LaunchClient.o \
+./Orbit/OrbitController.o \
+./Orbit/StarlinkSatelite.o \
+./Orbit/User.o \
+./Orbit/Signal/Signal.o \
+./Orbit/Signal/ConnectSignal.o \
+./Orbit/Signal/DisconnectSignal.o \
+./Orbit/Signal/MessageSignal.o \
 Main.o
 
 all: $(OBJS)
