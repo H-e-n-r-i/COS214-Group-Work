@@ -24,3 +24,7 @@ void Falcon9Core::startEngines(){
         (*it)->startEngines();
     }
 }
+
+list<Composition*> Falcon9Core::getEngines(){
+    return engines;
+}

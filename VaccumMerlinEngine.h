@@ -19,6 +19,7 @@ class VaccumMerlinEngine: public Composition{
         virtual int generateEngineNumber();
         virtual int getEngineNumber();
         virtual void setEngineNumber(int);
+        virtual void updateState();
 };
 
 #endif //VACCUMMERLINENGINE_H

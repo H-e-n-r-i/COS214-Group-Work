@@ -6,6 +6,7 @@
 #include "VaccumMerlinEngine.h"
 #include "MerlinEngine.h"
 #include "Falcon9Core.h"
+#include "EngineState.h"
 using namespace std;
 
 /**
@@ -15,22 +16,11 @@ using namespace std;
 
 class Rocket{
     private:
-        double baseCost;
+        double baseWeight;
         double optimalLimit;
-        // Spacecraft weight
         double totalWeight;
         double spaceCraftWeight;
-
-        /**
-         * @param engine - to instantiate the Merlin Engine
-         */
-        Composition* engine;
-
-        /**
-         * @param core - to hold the composite cores which will attach engines
-         */
-        Composition* core;
-        
+        double multiplier;
         list<Composition*> compositions;
         string rocketType; //Rocket type Falcon9 || FalconHeavy
 
@@ -38,19 +28,24 @@ class Rocket{
         Rocket();
         Rocket(double, double, string, string);
         virtual ~Rocket();
-        double getBaseCost();
+        double getBaseWeight();
         double getOptimalLimit();
         double getTotalWeight();
+        double getMultiplier();
         double getSpaceCraftWeight();
         void assembleComposition();
         void setSpaceCraftWeight(double);
         string getStage();
-        // Template Method || notify 1.0
+        string getRocketType();
         void startEngines();
+        void inspectEngines();
+        void modifyEngineState();     
+        void notify();   
         virtual void showStage() = 0;
 
     protected:
         string stage;
+        list<EngineState*> engineStates;
 };
 
 #endif //ROCKET_H

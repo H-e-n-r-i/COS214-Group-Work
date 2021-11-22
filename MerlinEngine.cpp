@@ -2,6 +2,7 @@
 
 MerlinEngine::MerlinEngine():Composition(){
     engineNumber = 0;
+    name = "Merlin Engine";
 }
 
 MerlinEngine::~MerlinEngine(){
@@ -17,7 +18,9 @@ Composition* MerlinEngine::reconstruct(){
 }
 
 void MerlinEngine::startEngines(){
-    std::cout << "Starting [Merlin] Engine: " << getEngineNumber() << std::endl;
+    std::cout << "Starting " << getEngineName() << " " << this->getEngineNumber() << std::endl;
+    state = new Running();
+    setEngineState(state->getState());
 }
 
 int MerlinEngine::generateEngineNumber(){
@@ -30,4 +33,10 @@ int MerlinEngine::getEngineNumber(){
 
 void MerlinEngine::setEngineNumber(int number){
     engineNumber = number;
+}
+
+void MerlinEngine::updateState(){
+    if(state->getState() != getEngineState()){
+        setEngineState(state->getState());
+    }
 }

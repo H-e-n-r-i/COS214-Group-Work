@@ -1,10 +1,11 @@
 #include "VaccumMerlinEngine.h"
 
-VaccumMerlinEngine::VaccumMerlinEngine():Composition(){}
-
-VaccumMerlinEngine::~VaccumMerlinEngine(){
-    engineNumber = 1;
+VaccumMerlinEngine::VaccumMerlinEngine():Composition(){
+    name = "Vaccum Merlin Engine";
+    engineNumber = 0;
 }
+
+VaccumMerlinEngine::~VaccumMerlinEngine(){}
 
 // Prototype Method
 Composition* VaccumMerlinEngine::reconstruct(){
@@ -14,7 +15,9 @@ Composition* VaccumMerlinEngine::reconstruct(){
 }
 
 void VaccumMerlinEngine::startEngines(){
-    std::cout << "Starting [Vaccum Merlin Engine] Engine: " << this->getEngineNumber() << std::endl;
+    std::cout << "Starting " << this->getEngineName() << " " << this->getEngineNumber() << std::endl;
+    state = new Running();
+    setEngineState(state->getState());
 }
 
 int VaccumMerlinEngine::generateEngineNumber(){
@@ -27,4 +30,10 @@ int VaccumMerlinEngine::getEngineNumber(){
 
 void VaccumMerlinEngine::setEngineNumber(int number){
     engineNumber = number;
+}
+
+void VaccumMerlinEngine::updateState(){
+    if(state->getState() != getEngineState()){
+        setEngineState(state->getState());
+    }
 }

@@ -2,22 +2,23 @@
 
 Rocket::Rocket(){}
 
-Rocket::Rocket(double baseCost, double opLimit, string stage, string name){
-    this->baseCost = baseCost;
+Rocket::Rocket(double baseWeight, double opLimit, string stage, string name){
+    this->baseWeight = baseWeight;
     optimalLimit = opLimit;
     this->stage = stage;
     this->rocketType = name;
 
+    engineStates.push_back(new Running());
+    engineStates.push_back(new Idle());
+    engineStates.push_back(new Damaged());
+
     this->assembleComposition();
 }
 
-Rocket::~Rocket(){
-    delete engine;
-    delete core;
-}
+Rocket::~Rocket(){}
 
-double Rocket::getBaseCost(){
-    return baseCost;
+double Rocket::getBaseWeight(){
+    return baseWeight;
 }
 
 double Rocket::getOptimalLimit(){
@@ -25,7 +26,44 @@ double Rocket::getOptimalLimit(){
 }
 
 double Rocket::getTotalWeight(){
-    return 0.0;
+    totalWeight = getBaseWeight() + getSpaceCraftWeight();
+    return totalWeight;
+}
+
+double Rocket::getMultiplier(){
+    double weight = getTotalWeight();
+    double percentage = 0.0;
+    multiplier = 1.0;
+
+    if(weight > getOptimalLimit()){
+        weight -= getOptimalLimit();
+        percentage = (weight/getOptimalLimit())*100;
+
+        if(percentage >= 0 && percentage <= 20){
+            if(getRocketType() == "Falcon9")
+                multiplier = 1.2;
+            else
+                multiplier = 1.2;
+        }
+        else if(percentage >= 21 && percentage <= 50){
+            if(getRocketType() == "Falcon9")
+                multiplier = 2.0;
+            else
+                multiplier = 2.2;
+        }
+        else{
+            if(getRocketType() == "Falcon9")
+                multiplier = 5.0;
+            else
+                multiplier = 3.0;
+        }
+    }
+
+    return multiplier;
+}
+
+string Rocket::getRocketType(){
+    return rocketType;
 }
 
 double Rocket::getSpaceCraftWeight(){
@@ -33,6 +71,16 @@ double Rocket::getSpaceCraftWeight(){
 }
 
 void Rocket::assembleComposition(){
+    /**
+     * @param engine - to instantiate the Merlin Engine
+     */
+    Composition* engine;
+
+    /**
+     * @param core - to hold the composite cores which will attach engines
+     */
+    Composition* core;
+    
     if(stage == "Stage 1"){
         /** 
          * Merlin Engine Instantiation
@@ -103,4 +151,138 @@ void Rocket::startEngines(){
     list<Composition*>::iterator it;
     for(it = compositions.begin(); it != compositions.end(); it++) 
         (*it)->startEngines();
+}
+
+void Rocket::inspectEngines(){
+    list<Composition*>::iterator it;
+    int core = 0;
+
+    cout << endl << "========================================" << endl;
+    cout << "Inspecting " << getStage() << " Engines..." << endl;
+    cout << "========================================" << endl << endl;
+
+    for(it = compositions.begin(); it != compositions.end(); it++){
+        if(getStage() == "Stage 1"){            
+            list<Composition*> engines = (*it)->getEngines();
+            list<Composition*>::iterator engine;
+
+            cout << "[ " << getRocketType() << " Core: " << ++core << " ]" << endl << endl;
+
+            for(engine = engines.begin(); engine != engines.end(); engine++){
+                cout << "Engine No: " << (*engine)->getEngineNumber() << endl;
+                cout << "Engine Name: " << (*engine)->getEngineName() << endl;
+                cout << "Engine Health: " << (*engine)->getEngineState() << endl << endl;
+            }
+        }   
+        else{
+            cout << "Engine No: " << (*it)->getEngineNumber() << endl;
+            cout << "Engine Name: " << (*it)->getEngineName() << endl;
+            cout << "Engine Health: " <<  (*it)->getEngineState() << endl << endl;
+        }
+
+        cout << endl;
+    }
+}
+
+/**
+ * @brief This modifies a rocket engine based depending of which section of the rocket it is of, either Stage 1 or 2 
+ */
+void Rocket::modifyEngineState(){
+    int changeState;
+    int core = -1;
+    int engine = -1;
+    Composition* eng;
+
+    cout << endl << "========================================" << endl;
+    cout << "Modifying " << getStage() << " Engines..." << endl;
+    cout << "========================================" << endl << endl;
+
+    cout << "NB: Select 999 to cancel" << endl << endl;
+
+    if(getStage() == "Stage 1"){
+        int coreSize = compositions.size();
+
+        while(true){
+            cout << "Select Falcon9Core to Modify (1-" << coreSize << "): ";
+            cin >> core;
+
+            if(core == 999) return;
+
+            if(core < 0 || core > coreSize){
+                cout << "!!!!!!Invalid Core Selection!!!!!!!!!" << endl << endl;
+                continue;
+            }
+            break;
+        }
+
+        --core;
+        int engineMax = (*next(compositions.begin(), core))->getEngines().size();
+        
+        while(true){
+            cout << "Select Engine to Modify: (1-" << engineMax << "): ";
+            cin >> engine;
+
+            if(engine == 999) return;
+
+            if(engine < 0 || engine > engineMax){
+                cout << "!!!!!!Invalid Engine Selection!!!!!!!!!" << endl << endl;
+                continue;
+            }
+            break;
+        }
+
+        --engine;
+        eng = (*next((*next(compositions.begin(), core))->getEngines().begin(), engine));
+    }
+    else
+        eng = (*next(compositions.begin(), 0));
+
+    while (true){
+        cout << "Select New State: \n";
+
+        if(eng->getEngineState() != (*next(engineStates.begin(), 0))->getState())
+            cout << "1. Start Engine: " << endl;
+        
+        if(eng->getEngineState() != (*next(engineStates.begin(), 1))->getState())
+            cout << "2. Stop Engine: " << endl;
+
+        if(eng->getEngineState() != (*next(engineStates.begin(), 2))->getState())
+            cout << "3. Damage Engine: " << endl;
+
+        cin >> changeState;
+
+        if(changeState == 999) return;
+
+        int engSizes = engineStates.size();
+
+        if(changeState < 0 || changeState > engSizes){
+            cout << "!!!!!!Invalid State Selection!!!!!!!!!" << endl << endl;
+            continue;
+        }
+        break;
+    }
+
+    if(core != -1)
+        (*next((*next(compositions.begin(), core))->getEngines().begin(), engine))->setEngineState((*next(engineStates.begin(), --changeState)));
+    else
+        (*next(compositions.begin(), 0))->setEngineState((*next(engineStates.begin(), --changeState)));
+    
+    // Observer notify()
+    notify();
+}
+
+void Rocket::notify(){
+    list<Composition*>::iterator it;
+
+    for(it = compositions.begin(); it != compositions.end(); it++){
+        if(getStage() == "Stage 1"){ 
+            list<Composition*> engines = (*it)->getEngines();
+            list<Composition*>::iterator engine;
+
+            for(engine = engines.begin(); engine != engines.end(); engine++)
+                (*engine)->updateState();
+        }
+        else
+            (*it)->updateState();
+    }
 }

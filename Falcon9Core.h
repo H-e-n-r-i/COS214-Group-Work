@@ -6,7 +6,7 @@ using namespace std;
 
 /**
  * @author Nhlamulo Maluleka
- * @section Composite
+ * @section Composite + Prototype
  */
 
 class Falcon9Core: public Composition{
@@ -19,6 +19,7 @@ class Falcon9Core: public Composition{
         virtual void addEngine(Composition*);
         virtual Composition* reconstruct();
         virtual void startEngines();
+        list<Composition*> getEngines();
 };
 
 #endif //FALCON9CORE_H

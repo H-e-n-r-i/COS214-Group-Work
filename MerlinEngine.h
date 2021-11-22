@@ -19,6 +19,7 @@ class MerlinEngine: public Composition{
         virtual int generateEngineNumber();
         virtual int getEngineNumber();
         virtual void setEngineNumber(int);
+        virtual void updateState();
 };
 
 #endif //MERLINENGINE_H
