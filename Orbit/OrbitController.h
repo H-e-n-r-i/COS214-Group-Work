@@ -3,29 +3,29 @@
 
 #include "StarlinkSatelite.h"
 
-class OrbitalControl {
+class OrbitalControl
+{
 
-    private:
-        OrbitalControl* orbit;
-        StarlinkSatelite* satelite;
-        int numSatelites;
+private:
+    OrbitalControl *orbit;
+    StarlinkSatelite *satelite;
+    int numSatelites;
 
-    public:
-        OrbitalControl *getOrbit();
+public:
+    OrbitalControl *getOrbit();
 
-        void sendMessage(std::string, std::string);
-        void connect(std::string);
-        void disconnect(std::string);
-        void setNumSatelites(int n);
-        int getNumSatelites();
-        void createSatelites(int n);
+    void sendMessage(std::string, std::string);
+    void connect(std::string);
+    void disconnect(std::string);
+    void setNumSatelites(int n);
+    int getNumSatelites();
+    void createSatelites(int n);
+    OrbitalControl();
+    ~OrbitalControl();
 
-    protected:
-        OrbitalControl();
-        ~OrbitalControl();
-
-        OrbitalControl(OrbitalControl &) = delete;
-        OrbitalControl &operator=(const OrbitalControl &) = delete;
+protected:
+    OrbitalControl(OrbitalControl &) = delete;
+    OrbitalControl &operator=(const OrbitalControl &) = delete;
 };
 
 #endif
