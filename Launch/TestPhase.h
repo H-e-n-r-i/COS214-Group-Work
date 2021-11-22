@@ -6,8 +6,8 @@
 class TestPhase : public LaunchController {
 
     private:
-        std::vector<Cargo*> loadCargo();
-        std::vector<Crew*> loadCrew();
+        void loadCargo();
+        void loadCrew();
 
     public:
         TestPhase();
