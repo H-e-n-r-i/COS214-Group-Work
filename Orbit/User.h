@@ -1,30 +1,22 @@
-//Command DP
-//Robyn
-//Command Invoker
-
 #ifndef USER_H
 #define USER_H
 
-#include "Signal.h"
-#include <iostream>
-#include <string>
+#include "./Signal/Signal.h"
 
-using namespace std;
+class User {
 
-class User
-{
-private:
-	Signal* Connect;
-	Signal* Message;
-	Signal* Disconnet;
-public:
-	User(Signal* C, Signal* M, Signal* D);
-	User();
-	~User();
-	void SendMessage();
-	void Connect();
-	void Disconnect();
-	
+    private:
+        std::string uID;
+        Signal *signal;
+    
+    public:
+        User(std::string);
+        ~User();
+
+        void connect(std::string);
+        void disconnect(std::string);
+        void sendMessage(std::string id, std::string message);
+        //void receiveMessage(std::string id, std::string message);
 };
 
 #endif
