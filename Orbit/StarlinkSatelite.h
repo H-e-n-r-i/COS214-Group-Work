@@ -11,6 +11,7 @@ class StarlinkSatelite {
         StarlinkSatelite* head;
         //User* user;
         bool Online;
+        string name;
 
     public:
         StarlinkSatelite();
@@ -21,6 +22,8 @@ class StarlinkSatelite {
         void setOnline(bool o);
         bool getOnline();
         StarlinkSatelite* getHead();
+        string getName();
+        void setName(string q);
 };
 
 #endif
