@@ -1,18 +1,17 @@
 #ifndef FALCONHEAVY_H
 #define FALCONHEAVY_H
-
 #include "Rocket.h"
 
-class FalconHeavy : public Rocket {
+/**
+ * @author Nhlamulo Maluleka
+ * @section Abstract Factory
+ */
 
-    private:
-        std::string phase;
-    
+class FalconHeavy: public Rocket{
     public:
-        FalconHeavy(std::list<Composition*>);
+        FalconHeavy(string);
         ~FalconHeavy();
-
-        void showPhase();
+        virtual void showStage();
 };
 
-#endif
+#endif //FALCONHEAVY_H

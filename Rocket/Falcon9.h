@@ -1,18 +1,17 @@
 #ifndef FALCON9_H
 #define FALCON9_H
-
 #include "Rocket.h"
 
-class Falcon9 : public Rocket {
+/**
+ * @author Nhlamulo Maluleka
+ * @section Abstract Factory
+ */
 
-    private:
-        std::string phase;
-    
+class Falcon9: public Rocket{
     public:
-        Falcon9(std::list<Composition*>);
+        Falcon9(string);
         ~Falcon9();
-
-        void showPhase();
+        virtual void showStage();
 };
 
-#endif
+#endif //FALCON9_H

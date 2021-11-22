@@ -1,16 +1,18 @@
 #ifndef FALCONHEAVYCONFIGURATION_H
 #define FALCONHEAVYCONFIGURATION_H
-
 #include "ConfigurationController.h"
 
-class FalconHeavyConfiguration : public ConfigurationController {
+/**
+ * @author Nhlamulo Maluleka
+ * @section Abstract Factory
+ */
 
-    public: 
+class FalconHeavyConfiguration: public ConfigurationController{
+    public:
         FalconHeavyConfiguration();
-        ~FalconHeavyConfiguration();
-
-        Rocket* phaseOne();
-        Rocket* phaseTwo();
+        virtual ~FalconHeavyConfiguration();
+        virtual Rocket* stageOne();
+        virtual Rocket* stageTwo();
 };
 
-#endif
+#endif //FALCONHEAVYCONFIGURATION_H

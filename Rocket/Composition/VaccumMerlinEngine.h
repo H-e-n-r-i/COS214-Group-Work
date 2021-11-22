@@ -1,5 +1,5 @@
-#ifndef MERLINENGINE_H
-#define MERLINENGINE_H
+#ifndef VACCUMMERLINENGINE_H
+#define VACCUMMERLINENGINE_H
 #include "Composition.h"
 
 /**
@@ -7,13 +7,13 @@
  * @section Composite
  */
 
-class MerlinEngine: public Composition{
+class VaccumMerlinEngine: public Composition{
     private:
         int engineNumber;
 
     public:
-        MerlinEngine();
-        ~MerlinEngine();
+        VaccumMerlinEngine();
+        ~VaccumMerlinEngine();
         virtual Composition* reconstruct();
         virtual void startEngines();
         virtual int generateEngineNumber();
@@ -22,4 +22,4 @@ class MerlinEngine: public Composition{
         virtual void updateState();
 };
 
-#endif //MERLINENGINE_H
+#endif //VACCUMMERLINENGINE_H
