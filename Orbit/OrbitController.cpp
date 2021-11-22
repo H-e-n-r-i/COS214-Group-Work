@@ -36,7 +36,7 @@ void OrbitalControl::setNumSatelites(int n) //sets the number of satelites
 
 void OrbitalControl::createSatelites(int n) //creates a batch of satelites
 {
-	StarlinkSatelite* next = null;
+	StarlinkSatelite* next = nullptr;
 	if(n > 60)
 	{
 		cout << "Too many satelites." << endl;
@@ -52,12 +52,12 @@ void OrbitalControl::createSatelites(int n) //creates a batch of satelites
 	setNumSatelites(num);
 	StarlinkSatelite* curr = new StarlinkSatelite();
 	StarlinkSatelite* head = curr;
-	curr->next = null;
+	curr->next = nullptr;
 	for(int q = 1; q <= n, q++)
 	{
 		StarlinkSatelite* Node = new StarlinkSatelite();
 		curr->next = Node;
-		Node->next = null;
+		Node->next = nullptr;
 	}
 	satelite->appendBatch(head);
 }
