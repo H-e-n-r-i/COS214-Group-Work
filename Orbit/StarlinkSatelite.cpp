@@ -48,9 +48,13 @@ void StarlinkSatelite::connect(string q)
 	}
 	else
 	{
-		StarlinkSatelite* temp = head;
-		head = newNode;
-		newNode->successor = temp;
+		curr = head;
+		while(successor != null)
+		{
+			curr = curr->successor;
+		}
+		curr->successor = newNode;
+		successor = newNode;
 		newNode->connect(q);
 	}
 	
@@ -95,4 +99,14 @@ void StarlinkSatelite::setName(string q)
 string StarlinkSatelite::getName()
 {
 	return Name;
+}
+
+void StarlinkSatelite::appendBatch(StarlinkSatelite* Node)
+{
+	if(successor == null)
+	{
+		successor = Node;
+	}
+	else
+		successor = successor->successor;
 }
