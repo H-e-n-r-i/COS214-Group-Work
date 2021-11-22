@@ -15,6 +15,11 @@ void LaunchPhase::launch()
     std::cout << "Initiating inspection!\n";
     rocket->inspectEngines();
     rocket->startEngines();
+    if (!rocket->isReadyForLaunch())
+    {
+        std::cout << "There was an error with launch, aborting\n";
+        return;
+    }
     std::cout << "We are go for launch!\nStart count down! (press any key)\n";
     std::cin;
     for (int i = 9; i >= 0; i--)
