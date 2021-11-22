@@ -6,5 +6,5 @@ COS214-Group-Work
 [Observer] - Used for monitoring the health of every single rocket engine
 [Prototype] - Used it to clone rocket engines
 [Bridge] - Used it to abstract out some of the different rocket engines' health states
-<!-- [Stategy] - Used in a similar fashion to Bridge  -->
+[Stategy] - Used in a similar fashion to Bridge but it selects a State from the object passed in through the [Bridge] object
 [Composite] - Used to contruct the Falcon9Core of the first stage of each rocket type

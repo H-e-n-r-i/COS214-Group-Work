@@ -1,19 +1,23 @@
 Charl:
-Template
-Observer
+    Template
+    Observer
 
 Robyn:
-Command
-State
+    Command
+    State
 
 Henri:
-Chain
-Strategy
+    Chain
+    Strategy
 
 Nhlamulo:
-RocketHierarchy
-Prototype + AbstractFactory
+    Prototype
+    Abstract Factory
+    Composite
+    Observer
+    Bridge
+    Strategy
 
 Johan:
-Mediator
-Singleton
+    Mediator
+    Singleton
