@@ -48,6 +48,7 @@ void OrbitalControl::createSatelites(int n)
 		return;
 	}
 	StarlinkSatelite* curr = new StarlinkSatelite();
+	StarlinkSatelite* head = curr;
 	curr->next = null;
 	for(int q = 1; q <= n, q++)
 	{
@@ -55,6 +56,7 @@ void OrbitalControl::createSatelites(int n)
 		curr->next = Node;
 		Node->next = null;
 	}
+	satelite->appendBatch(head);
 }
 
 OrbitalControl::OrbitalControl()
