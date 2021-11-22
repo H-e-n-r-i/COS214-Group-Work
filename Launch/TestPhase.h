@@ -2,18 +2,20 @@
 #define TESTPHASE_H
 
 #include "LauncController.h"
+#include <vector>
 
-class TestPhase : public LaunchController {
+class TestPhase : public LaunchController
+{
 
-    private:
-        void loadCargo();
-        void loadCrew();
+private:
+    std::vector<Cargo *> loadCargo();
+    std::vector<Crew *> loadCrew();
 
-    public:
-        TestPhase();
-        ~TestPhase();
+public:
+    TestPhase();
+    ~TestPhase();
 
-        void launch();
+    void launch();
 };
 
 #endif

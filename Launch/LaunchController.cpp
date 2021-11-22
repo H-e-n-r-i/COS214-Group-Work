@@ -8,3 +8,12 @@ LaunchController::LaunchController()
     this->spacecraft = nullptr;
     this->rocket = nullptr;
 }
+
+LaunchController::LaunchController(LaunchController *in)
+{
+    this->totalWeight = in->totalWeight;
+    this->hasCrew = in->hasCrew;
+    this->rocketConfigurator = in->rocketConfigurator;
+    this->rocket = in->rocket;
+    this->spacecraft = in->spacecraft;
+}

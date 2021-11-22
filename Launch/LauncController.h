@@ -19,6 +19,7 @@ protected:
 
 public:
     LaunchController();
+    LaunchController(LaunchController *);
     ~LaunchController();
 
     bool getHasCrew();
