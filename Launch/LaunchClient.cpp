@@ -17,6 +17,7 @@ void LaunchClient::Test()
     {
         controller = new TestPhase();
         controller->launch();
+        t = true;
     }
     else
         std::cout << "Test Phase has already taken place.\n";
@@ -28,8 +29,9 @@ void LaunchClient::Launch()
     {
         if (t)
         {
-            controller = new DockPhase(controller);
+            controller = new LaunchPhase(controller);
             controller->launch();
+            l = true;
         }
         else
             std::cout << "Testing phase needs to take place first\n";
@@ -46,6 +48,7 @@ void LaunchClient::Dock()
         {
             controller = new DockPhase(controller);
             controller->launch();
+            d = true;
         }
         else
             std::cout << "Launching phase needs to take place first\n";
@@ -62,10 +65,20 @@ void LaunchClient::Complete()
         {
             controller = new DockPhase(controller);
             controller->launch();
+            c = true;
         }
         else
             std::cout << "Docking phase needs to take place first\n";
     }
     else
         std::cout << "Completion phase has already taken place\n";
+}
+
+void LaunchClient::resetLaunch()
+{
+    delete controller;
+    t = false;
+    d = false;
+    l = false;
+    c = false;
 }

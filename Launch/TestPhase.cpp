@@ -60,7 +60,7 @@ std::vector<Cargo *> TestPhase::loadCargo()
     srand(time(nullptr));
     int in = 0;
     std::vector<Cargo *> cargo;
-    std::cout << "How many items of cargo would you like to load?/n";
+    std::cout << "How many items of cargo would you like to load?\n";
     std::cin >> in;
     for (int i = 0; i < in; i++)
     {
@@ -124,5 +124,5 @@ void TestPhase::launch()
         Spacecraft *temp = new CrewDragon(cargo, crew);
         CheckCase(temp);
     }
-    std::cout << "Rockets have been loaded and are waiting launch sequence!/n";
+    std::cout << "Rockets have been loaded and are waiting launch sequence!\n";
 }
