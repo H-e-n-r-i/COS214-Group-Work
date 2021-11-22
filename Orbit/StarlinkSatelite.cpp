@@ -14,17 +14,54 @@ StarlinkSatelite::~StarlinkSatelite()
 
 void StarlinkSatelite::sendMessage(string q, string w)
 {
-	successor->sendMessage(q, w);
+	string n = getName();
+	while(head != null)
+	{
+		if(n == q)
+		{
+			head = successor;
+			head->sendMessage(q, w);
+			return;
+		}
+		else
+		head = head->successor;
+	}
 }
 
 void StarlinkSatelite::connect(string q)
 {
-	successor->connect(q);
+	StarlinkSatelite* newNode = new StarlinkSatelite();
+	setName(q);
+	if(head == null)
+	{
+		head = newNode;
+		newNode->connect(q);
+		successor = null;
+	}
+	else
+	{
+		StarlinkSatelite* temp = head;
+		head = newNode;
+		newNode->successor = temp;
+		newNode->connect(q);
+	}
+	
 }
 
 void StarlinkSatelite::disconnect(string q)
 {
-	successor->disconnect(q);
+	string n = getName();
+	while(head != null)
+	{
+		if(n == q)
+		{
+			head = successor;
+			head->disconnect(q);
+			return;
+		}
+		else
+		head = head->successor;
+	}
 }
 
 bool StarlinkSatelite::getOnline()
@@ -40,4 +77,14 @@ void StarlinkSatelite::setOnline(bool o)
 StarlinkSatelite* StarlinkSatelite::getHead()
 {
 	return head;
+}
+
+void StarlinkSatelite::setName(string q)
+{
+	Name = q;
+}
+
+string StarlinkSatelite::getName()
+{
+	return Name;
 }
