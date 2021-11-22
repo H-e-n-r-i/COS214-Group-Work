@@ -13,8 +13,8 @@ LaunchPhase::~LaunchPhase() {}
 void LaunchPhase::launch()
 {
     std::cout << "Initiating inspection!\n";
-    rocket->inspectEngines();
     rocket->startEngines();
+    rocket->inspectEngines();
     if (!rocket->isReadyForLaunch())
     {
         std::cout << "There was an error with launch, aborting\n";
