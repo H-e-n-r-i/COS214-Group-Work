@@ -4,7 +4,9 @@
 using namespace std;
 
 StarlinkSatelite::StarlinkSatelite()
-{}
+{
+	head = null;
+}
 
 StarlinkSatelite::~StarlinkSatelite()
 {
@@ -33,4 +35,9 @@ bool StarlinkSatelite::getOnline()
 void StarlinkSatelite::setOnline(bool o)
 {
 	Online = o;
+}
+
+StarlinkSatelite* StarlinkSatelite::getHead()
+{
+	return head;
 }
