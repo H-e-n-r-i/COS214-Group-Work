@@ -16,6 +16,7 @@ private:
 
 public:
     TestPhase();
+    TestPhase(LaunchController *);
     ~TestPhase();
 
     void launch();

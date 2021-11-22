@@ -1,42 +1,9 @@
 #include "TestPhase.h"
 
-TestPhase::TestPhase()
+TestPhase::TestPhase(LaunchController *in) : LaunchController(in) {}
+
+TestPhase::TestPhase() : LaunchController(), OptimalValue(0)
 {
-
-    std::vector<Cargo *> cargo = this->loadCargo();
-    std::vector<Crew *> crew = this->loadCrew();
-    (hasCrew) ? spacecraft = new CrewDragon(cargo, crew) : spacecraft = new Dragon(cargo);
-
-    double weight = spacecraft->getTotalWeight();
-    Falcon9Configuration *F9 = new Falcon9Configuration();
-    FalconHeavyConfiguration *FH = new FalconHeavyConfiguration();
-    Rocket *nine = F9->stageOne();
-    Rocket *heavy = FH->stageOne();
-
-    nine->setSpaceCraftWeight(weight);
-    heavy->setSpaceCraftWeight(weight);
-    if (optimal(nine) < optimal(heavy))
-    {
-        rocket = nine;
-        delete heavy;
-        rocketConfigurator = F9;
-        delete FH;
-        OptimalValue = optimal(nine);
-    }
-    else
-    {
-        rocket = heavy;
-        delete nine;
-        rocketConfigurator = FH;
-        delete F9;
-        OptimalValue = optimal(heavy);
-    }
-
-    if (!hasCrew)
-    {
-        Spacecraft *temp = new CrewDragon(cargo, crew);
-        CheckCase(temp);
-    }
 }
 
 void TestPhase::CheckCase(Spacecraft *in)
@@ -109,5 +76,43 @@ std::vector<Crew *> TestPhase::loadCrew()
     for (int i = 0; i < in; i++)
     {
         crew.push_back(new Crew());
+    }
+}
+void TestPhase::launch()
+{
+
+    std::vector<Cargo *> cargo = this->loadCargo();
+    std::vector<Crew *> crew = this->loadCrew();
+    (hasCrew) ? spacecraft = new CrewDragon(cargo, crew) : spacecraft = new Dragon(cargo);
+
+    double weight = spacecraft->getTotalWeight();
+    Falcon9Configuration *F9 = new Falcon9Configuration();
+    FalconHeavyConfiguration *FH = new FalconHeavyConfiguration();
+    Rocket *nine = F9->stageOne();
+    Rocket *heavy = FH->stageOne();
+
+    nine->setSpaceCraftWeight(weight);
+    heavy->setSpaceCraftWeight(weight);
+    if (optimal(nine) < optimal(heavy))
+    {
+        rocket = nine;
+        delete heavy;
+        rocketConfigurator = F9;
+        delete FH;
+        OptimalValue = optimal(nine);
+    }
+    else
+    {
+        rocket = heavy;
+        delete nine;
+        rocketConfigurator = FH;
+        delete F9;
+        OptimalValue = optimal(heavy);
+    }
+
+    if (!hasCrew)
+    {
+        Spacecraft *temp = new CrewDragon(cargo, crew);
+        CheckCase(temp);
     }
 }
