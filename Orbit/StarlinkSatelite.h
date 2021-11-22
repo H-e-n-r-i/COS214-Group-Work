@@ -1,23 +1,18 @@
-#ifndef StarlinkSatelite_H
-#define StarlinkSatelite_H
+#ifndef STARLINKSATELITE_H
+#define STARLINKSATELITE_H
 
-#include <string>
-using namespace std;
+#include "User.h"
 
-class StarlinkSatelite
-{
-private:
-    string id;
+class StarlinkSatelite {
+    
+    private:
+        StarlinkSatelite* successor;
+        //User* user;
 
-protected:
-    StarlinkSatelite *next;
-    friend StarlinkSatelite;
-
-public:
-    StarlinkSatelite(string);
-    ~StarlinkSatelite();
-    string getID();
-    void attatch(StarlinkSatelite *);
+    public:
+        void sendMessage(std::string, std::string);
+        void connect(std::string);
+        void disconnect(std::string);
 };
 
 #endif

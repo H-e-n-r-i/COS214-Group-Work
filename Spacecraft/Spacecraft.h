@@ -1,32 +1,32 @@
-//State DP
-//Robyn
-// State
-
-<<<<<<< HEAD
-//Charl: Template
-
-=======
->>>>>>> robyn
 #ifndef SPACECRAFT_H
 #define SPACECRAFT_H
 
-#include "LaunchController.h"
-#include <iostream>
-#include <string>
+#include <vector>
 
-using namespace std;
+#include "./Load/Cargo.h"
 
-class Spacecraft
-{
-public:
-	Spacecraft();
-	~Spacecraft();
-	virtual void handle(LaunchController* lc) = 0;
-	virtual string getSpacecraft() = 0;
+class Spacecraft {
+
+    private:
+        double totalWeight;
+        double baseWeight;
+        std::vector<Cargo*> cargo;
+    
+    public:
+        Spacecraft(std::vector<Cargo*>);
+        ~Spacecraft();
+
+        std::vector<Cargo*> getCargo();
+
+        /*
+        * Template method: getTotalWeight
+        * Primitive operation1: calcCrew
+        * Primitive operation2: calcCargo
+        */
+        double getTotalWeight();
+        virtual double calcCrew() = 0;
+        virtual double calcCargo() = 0;
+
 };
 
-<<<<<<< HEAD
 #endif
-=======
-#endif
->>>>>>> robyn

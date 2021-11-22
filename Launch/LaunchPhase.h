@@ -1,17 +1,15 @@
-#ifndef LAUNCHPHASE__H
-#define LAUNCHPHASE__H
+#ifndef LAUNCHPHASE_H
+#define LAUNCHPHASE_H
 
-#include "LaunchController.h"
+#include "LauncController.h"
 
-class LaunchPhase : public
-{
-private:
-    /* data */
-public:
-    LaunchPhase(/* args */);
-    ~LaunchPhase();
+class LaunchPhase : public LaunchController {
+
+    public:
+        LaunchPhase();
+        ~LaunchPhase();
+
+        void launch();
 };
-
-
 
 #endif

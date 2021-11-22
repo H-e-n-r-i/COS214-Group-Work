@@ -1,23 +1,20 @@
-//State DP
-//Robyn
-//Concrete State
-
 #ifndef CREWDRAGON_H
 #define CREWDRAGON_H
 
 #include "Spacecraft.h"
-#include <iostream>
-#include <string>
+#include "./Load/Crew.h"
 
-using namespace std;
+class CrewDragon : public Spacecraft {
 
-class CrewDragon : public Spacecraft
-{
-public:
-	CrewDragon() : Spacecraft() {};
-	~CrewDragon();
-	virtual void handle(LaunchController* lc) = 0;
-	virtual string getSpacecraft();
+    private:
+        std::vector<Crew*> crew;
+
+    public:
+        CrewDragon(std::vector<Cargo*>, std::vector<Crew*>);
+        ~CrewDragon();
+
+        double calcCrew();
+        double calcCargo();
 };
 
 #endif
