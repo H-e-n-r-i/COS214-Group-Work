@@ -115,4 +115,5 @@ void TestPhase::launch()
         Spacecraft *temp = new CrewDragon(cargo, crew);
         CheckCase(temp);
     }
+    std::cout << "Rockets have been loaded and are waiting launch sequence!/n";
 }
