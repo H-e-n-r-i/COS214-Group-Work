@@ -30,7 +30,7 @@ void StarlinkSatelite::connect(string q)
 void StarlinkSatelite::disconnect(string q)
 {
 	successor->disconnect(q);
-	remove()
+	remove();
 }
 
 void StarlinkSatelite::add(StarlinkSatelite* s)
