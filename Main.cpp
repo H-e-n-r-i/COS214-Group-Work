@@ -25,9 +25,11 @@ void input(LaunchClient &in)
     std::cout << "Which changes would you like to make?\n"
               << "n - none\n"
               << "b - break engines\n"
+              << "s - change amount of satelites\n"
               << "r - restart launch\n";
     char temp;
     cin >> temp;
+    string stemp;
 
     switch (temp)
     {
@@ -42,6 +44,11 @@ void input(LaunchClient &in)
         Simulation();
         std::cout.clear();
         return;
+        break;
+    case 's':
+        std::cout << "Set amount of satellites!\n";
+        std::cin >> stemp;
+        in.changesat(stoi(stemp));
         break;
 
     default:

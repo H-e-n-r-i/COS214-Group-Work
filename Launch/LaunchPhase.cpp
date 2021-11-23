@@ -20,8 +20,9 @@ void LaunchPhase::launch()
         std::cout << "There was an error with launch, aborting\n";
         return;
     }
-    std::cout << "We are go for launch!\nStart count down! (press any key)\n";
-    std::cin;
+    char temp;
+    std::cout << "We are go for launch!\nStart count down! (enter any value)\n";
+    std::cin >> temp;
     for (int i = 9; i >= 0; i--)
     {
         std::this_thread::sleep_for(seconds(1));

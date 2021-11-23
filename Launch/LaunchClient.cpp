@@ -89,3 +89,16 @@ void LaunchClient::damage()
 {
     controller->getRocket()->modifyEngineState();
 }
+
+void LaunchClient::changesat(int in)
+{
+    if (d)
+    {
+        std::cout << "Satellites have already been deployed!\n";
+        return;
+    }
+    if (controller->getRocket()->getRocketType() != "Falcon9")
+        std::cout << "Satellites are only supported on Falcon 9 rockets!\n";
+    else
+        controller->setsat(in);
+}

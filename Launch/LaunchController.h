@@ -1,5 +1,5 @@
-#ifndef LAUNCHCONTROLLER_H
-#define LAUNCHCONTROLLER_H
+#ifndef LAUNCHCONTROLLER__H
+#define LAUNCHCONTROLLER__H
 
 #include "../Rocket/Configuration/ConfigurationController.h"
 #include "../Rocket/Configuration/Falcon9Configuration.h"
@@ -33,7 +33,8 @@ public:
     void setHasCrew(bool);
     void setSpacecraft(Spacecraft *);
     virtual void launch() = 0;
-    Rocket * getRocket();
+    Rocket *getRocket();
+    void setsat(int);
 };
 
 #endif

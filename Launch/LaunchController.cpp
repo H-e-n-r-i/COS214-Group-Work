@@ -42,3 +42,8 @@ Rocket *LaunchController::getRocket()
 {
     return rocket;
 };
+
+void LaunchController::setsat(int in)
+{
+    satilite = in;
+}

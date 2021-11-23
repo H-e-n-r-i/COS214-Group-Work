@@ -25,6 +25,7 @@ public:
     void Complete();
     void resetLaunch();
     void damage();
+    void changesat(int);
 };
 
 #endif
