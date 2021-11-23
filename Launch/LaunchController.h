@@ -33,6 +33,7 @@ public:
     void setHasCrew(bool);
     void setSpacecraft(Spacecraft *);
     virtual void launch() = 0;
+    Rocket * getRocket();
 };
 
 #endif

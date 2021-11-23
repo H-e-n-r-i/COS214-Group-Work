@@ -4,25 +4,54 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void input(LaunchClient &in);
+
+void Simulation()
 {
     LaunchClient client;
+    input(client);
     client.Test();
+    input(client);
     client.Launch();
+    input(client);
     client.Dock();
+    input(client);
     client.Complete();
-    // ConfigurationController* F9Config = new Falcon9Configuration();
-    // ConfigurationController* FhConfig = new FalconHeavyConfiguration();
+    input(client);
+}
 
-    // Rocket* f9 = F9Config->stageOne();
-    // Rocket* fh = FhConfig->stageOne();
+void input(LaunchClient &in)
+{
+    std::cout << "Which changes would you like to make?\n"
+              << "n - none\n"
+              << "b - break engines\n"
+              << "r - restart launch\n";
+    char temp;
+    cin >> temp;
 
-    // fh->startEngines();
-    // fh->setSpaceCraftWeight(930.0);
-    // fh->inspectEngines();
-    // fh->modifyEngineState();
+    switch (temp)
+    {
+    case 'n':
+        return;
+        break;
+    case 'b':
+        in.damage();
+        break;
+    case 'r':
+        in.resetLaunch();
+        Simulation();
+        std::cout.clear();
+        return;
+        break;
 
-    // delete f9;
-    // delete fh;
+    default:
+        return;
+        break;
+    }
+}
+
+int main()
+{
+    Simulation();
     return 0;
 }

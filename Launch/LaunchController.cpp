@@ -37,3 +37,8 @@ void LaunchController::clear()
     delete rocketConfigurator;
     delete spacecraft;
 }
+
+Rocket *LaunchController::getRocket()
+{
+    return rocket;
+};

@@ -24,6 +24,7 @@ public:
     void Dock();
     void Complete();
     void resetLaunch();
+    void damage();
 };
 
 #endif

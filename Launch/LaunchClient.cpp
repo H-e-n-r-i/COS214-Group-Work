@@ -84,3 +84,8 @@ void LaunchClient::resetLaunch()
     l = false;
     c = false;
 }
+
+void LaunchClient::damage()
+{
+    controller->getRocket()->modifyEngineState();
+}
