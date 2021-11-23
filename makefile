@@ -15,6 +15,13 @@ OBJS = ./Rocket/Composition/Composition.o \
 ./Spacecraft/Spacecraft.o \
 ./Spacecraft/Dragon.o \
 ./Spacecraft/CrewDragon.o \
+./Orbit/Signal/ConnectSignal.o \
+./Orbit/Signal/DisconnectSignal.o \
+./Orbit/Signal/MessageSignal.o \
+./Orbit/StarlinkSatelite.o \
+./Orbit/OrbitController.o \
+./Orbit/StarlinkSatelite.o \
+./Orbit/User.o \
 ./Launch/LaunchController.o \
 ./Launch/DockPhase.o \
 ./Launch/LaunchPhase.o \
