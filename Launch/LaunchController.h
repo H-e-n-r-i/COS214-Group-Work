@@ -8,7 +8,7 @@
 #include "../Spacecraft/Dragon.h"
 #include "../Spacecraft/Spacecraft.h"
 // #include "../Orbit/OrbitController.h"
-// #include "../Orbit/OrbitController.h"
+#include "../Orbit/User.h"
 
 class LaunchController
 {
@@ -21,7 +21,7 @@ protected:
     ConfigurationController *rocketConfigurator;
     Spacecraft *spacecraft;
     Rocket *rocket;
-    // OrbitalControl *orbit;
+    User *orbit;
 
 public:
     LaunchController();
@@ -35,6 +35,7 @@ public:
     virtual void launch() = 0;
     Rocket *getRocket();
     void setsat(int);
+    User * getOrbit();
 };
 
 #endif

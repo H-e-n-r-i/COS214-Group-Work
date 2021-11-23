@@ -64,7 +64,7 @@ std::vector<Cargo *> TestPhase::loadCargo()
     std::cin >> in;
     for (int i = 0; i < in; i++)
     {
-        cargo.push_back(new Cargo(rand()%50));
+        cargo.push_back(new Cargo(rand() % 50));
     }
     return cargo;
 }
@@ -85,10 +85,12 @@ std::vector<Crew *> TestPhase::loadCrew()
 }
 void TestPhase::launch()
 {
-    // string temp = "";
-    // std::cout << "how many satelites would you like to send up?\n";
-    // std::cin >> temp;
-    // satilite = stoi(temp);
+    string temp = "";
+    std::cout << "how many satelites would you like to send up?\n";
+    std::cin >> temp;
+    satilite = stoi(temp);
+    if (satilite > 0)
+        orbit = new User();
 
     std::vector<Cargo *> cargo = this->loadCargo();
     std::vector<Crew *> crew = this->loadCrew();

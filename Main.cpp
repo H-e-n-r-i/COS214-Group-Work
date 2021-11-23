@@ -17,7 +17,6 @@ void Simulation()
     client.Dock();
     input(client);
     client.Complete();
-    input(client);
 }
 
 void input(LaunchClient &in)
@@ -26,10 +25,14 @@ void input(LaunchClient &in)
               << "n - none\n"
               << "b - break engines\n"
               << "s - change amount of satelites\n"
+              << "m - send message through satelites\n"
+              << "c - connect satellites\n"
+              << "d - disconnect satellites\n"
               << "r - restart launch\n";
     char temp;
     cin >> temp;
     string stemp;
+    string stemp2;
 
     switch (temp)
     {
@@ -49,6 +52,20 @@ void input(LaunchClient &in)
         std::cout << "Set amount of satellites!\n";
         std::cin >> stemp;
         in.changesat(stoi(stemp));
+        break;
+    case 'm':
+        std::cout << "Please enter satellite id\n";
+        std::cin >> stemp;
+        std::cout << "Please enter message\n";
+        std::cin >> stemp2;
+        in.sendMessage(stemp, stemp2);
+        break;
+    case 'c':
+        in.connect();
+        input(in);
+        break;
+    case 'd':
+        in.disconnect();
         break;
 
     default:

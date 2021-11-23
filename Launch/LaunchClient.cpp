@@ -2,7 +2,7 @@
 
 LaunchClient::LaunchClient(/* args */)
 {
-    t = l = d = c = false;
+    t = l = d = c = connected = false;
     controller = nullptr;
 }
 
@@ -83,6 +83,7 @@ void LaunchClient::resetLaunch()
     d = false;
     l = false;
     c = false;
+    connected = false;
 }
 
 void LaunchClient::damage()
@@ -101,4 +102,28 @@ void LaunchClient::changesat(int in)
         std::cout << "Satellites are only supported on Falcon 9 rockets!\n";
     else
         controller->setsat(in);
+}
+
+void LaunchClient::sendMessage(string id, string message)
+{
+    if (!connected)
+        std::cout << "Satellites need to be connected first!\n";
+    else
+        controller->getOrbit()->sendMessage(id, message);
+}
+
+void LaunchClient::connect()
+{
+    if (!d)
+        std::cout << "Satellites need to be released into orbit first!\n";
+    else
+        controller->getOrbit()->connect();
+}
+
+void LaunchClient::disconnect()
+{
+    if (!connected)
+        std::cout << "Satellites need to be connected first!\n";
+    else
+        controller->getOrbit()->disconnect();
 }
