@@ -35,7 +35,8 @@ public:
     virtual void launch() = 0;
     Rocket *getRocket();
     void setsat(int);
-    User * getOrbit();
+    User *getOrbit();
+    int getSat();
 };
 
 #endif

@@ -54,11 +54,11 @@ void input(LaunchClient &in)
         in.changesat(stoi(stemp));
         break;
     case 'm':
-        std::cout << "Please enter satellite id\n";
+        std::cout << "Please enter satellite id (0-" << to_string(in.getSat() - 1) << ")\n";
         std::cin >> stemp;
         std::cout << "Please enter message\n";
         std::cin >> stemp2;
-        in.sendMessage(stemp, stemp2);
+        in.sendMessage("s" + stemp, stemp2);
         break;
     case 'c':
         in.connect();

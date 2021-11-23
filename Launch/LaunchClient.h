@@ -29,6 +29,7 @@ public:
     void sendMessage(string, string);
     void connect();
     void disconnect();
+    int getSat();
 };
 
 #endif

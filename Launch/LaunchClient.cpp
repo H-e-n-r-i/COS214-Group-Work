@@ -117,7 +117,10 @@ void LaunchClient::connect()
     if (!d)
         std::cout << "Satellites need to be released into orbit first!\n";
     else
+    {
         controller->getOrbit()->connect();
+        connected = true;
+    }
 }
 
 void LaunchClient::disconnect()
@@ -125,5 +128,13 @@ void LaunchClient::disconnect()
     if (!connected)
         std::cout << "Satellites need to be connected first!\n";
     else
+    {
         controller->getOrbit()->disconnect();
+        connected = false;
+    }
+}
+
+int LaunchClient::getSat()
+{
+    return controller->getSat();
 }

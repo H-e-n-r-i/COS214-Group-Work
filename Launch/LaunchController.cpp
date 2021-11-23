@@ -53,3 +53,8 @@ User *LaunchController::getOrbit()
 {
     return orbit;
 }
+
+int LaunchController::getSat()
+{
+    return satilite;
+};
