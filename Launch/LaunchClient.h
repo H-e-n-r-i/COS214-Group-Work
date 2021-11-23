@@ -14,7 +14,7 @@ class LaunchClient
 {
 private:
     LaunchController *controller;
-    bool t, l, d, c;
+    bool t, l, d, c, connected;
 
 public:
     LaunchClient(/* args */);
@@ -26,6 +26,9 @@ public:
     void resetLaunch();
     void damage();
     void changesat(int);
+    void sendMessage(string, string);
+    void connect();
+    void disconnect();
 };
 
 #endif
