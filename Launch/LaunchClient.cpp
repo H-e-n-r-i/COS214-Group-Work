@@ -64,7 +64,7 @@ void LaunchClient::Complete()
     {
         if (d)
         {
-            controller = new DockPhase(controller);
+            controller = new CompletionPhase(controller);
             controller->launch();
             c = true;
         }
