@@ -3,9 +3,9 @@
 
 int main(){
     User* user = new User();
-    user->loadSatitiles(60);
+    user->loadSatitiles(10);
     user->connect();
-    user->sendMessage("S23", "Run Diagnostics");
+    user->sendMessage("S3", "Run Diagnostics");
     user->disconnect();
     return 0;
 }
