@@ -5,14 +5,10 @@
 #include <string>
 
 class MessageSignal : public Signal {
-    private:
-        Signal* s;
-        string M;
     public:
-        MessageSignal(std::string, std::string);
+        MessageSignal();
         ~MessageSignal();
-
-        void signal();
+        virtual void message(string);
 };
 
 #endif

@@ -1,112 +1,57 @@
 #include "StarlinkSatelite.h"
-#include <string>
+#include "OrbitController.h"
 
-using namespace std;
-
-StarlinkSatelite::StarlinkSatelite() //default constructor for StarlinkSatelite
-{
-	head = null;
-	Name = "";
+StarlinkSatelite::StarlinkSatelite(string id){
+	this->id = id;
 }
 
-StarlinkSatelite::StarlinkSatelite(string n) //constructor for StarlinkSatelite
-{
-	head = null;
-	Name = n;
-}
+StarlinkSatelite::~StarlinkSatelite(){}
 
-StarlinkSatelite::~StarlinkSatelite() //Destructor for StarlinkSatelite
-{
-}
+void StarlinkSatelite::receiveMessage(string msg, OrbitalControl* orb){
+	if(isOnline()){
+		cout << endl << "Admin Message: " << msg << endl;
+		list<StarlinkSatelite*> satelites = orb->getSatelites();
+		list<StarlinkSatelite*>::iterator it;
 
-void StarlinkSatelite::sendMessage(string q, string w) //finds the right satelite and sends a message to that satelite
-{
-	string n = getName();
-	while(head != null)
-	{
-		if(n == q)
-		{
-			head = successor;
-			head->sendMessage(q, w);
-			return;
+		for(it = satelites.begin(); it != satelites.end(); it++){
+			if((*it)->isOnline()){
+				if((*it)->getID() != this->getID()){
+					cout << "Satelite [" << this->getID() << "] sends a communication signal to satelite [" << (*it)->getID() << "]" << endl;
+				}
+			}
+			else
+				orb->receiveMessage(getID(), "Satelite " + (*it)->getID() + " is offline...");
 		}
-		else
-		head = head->successor;
-	}
-}
 
-void StarlinkSatelite::connect(string q) //connects a new satelite to the satelite network
-{
-	StarlinkSatelite* newNode = new StarlinkSatelite();
-	setName(q);
-	if(head == null)
-	{
-		head = newNode;
-		newNode->connect(q);
-		successor = null;
-		newNode->successor = successor;
+		orb->receiveMessage(getID(), "Complete!");
 	}
 	else
-	{
-		curr = head;
-		while(successor != null)
-		{
-			curr = curr->successor;
-		}
-		curr->successor = newNode;
-		successor = newNode;
-		newNode->connect(q);
-	}
-	
+		orb->receiveMessage(getID(), "Satelite Currently Offline!");
 }
 
-void StarlinkSatelite::disconnect(string q) //removes a satelite from the network
-{
-	string n = getName();
-	while(head != null)
-	{
-		if(n == q)
-		{
-			head = successor;
-			head->disconnect(q);
-			return;
-		}
-		else
-		head = head->successor;
-	}
+void StarlinkSatelite::connect(){
+	online = true;
+	cout << "Starlink " << getID() << " Successfully Connected" << endl;
 }
 
-bool StarlinkSatelite::getOnline() //checks to see if the satelite is online;
-{
-	return Online;
+
+void StarlinkSatelite::disconnect(){
+	online = false;
+	cout << "Starlink " << getID() << " Disconnected Successfully" << endl;
 }
 
-void StarlinkSatelite::setOnline(bool o) //sets the online variable of the satelite
-{
-	Online = o;
+void StarlinkSatelite::setOnline(bool on){
+	online = on;
 }
 
-StarlinkSatelite* StarlinkSatelite::getHead() //returns the head of the satelite network
-{
-	return head;
+bool StarlinkSatelite::isOnline(){
+	return online;
 }
 
-void StarlinkSatelite::setName(string q) //sets the name of the satelite
-{
-	Name = q;
+string StarlinkSatelite::getID(){
+	return id;
 }
 
-string StarlinkSatelite::getName() //returns the name of the satelite
-{
-	return Name;
-}
-
-void StarlinkSatelite::appendBatch(StarlinkSatelite* Node) //adds a batch of satelites to the network
-{
-	if(successor == null)
-	{
-		successor = Node;
-	}
-	else
-		successor = successor->successor;
+void StarlinkSatelite::setID(string id){
+	this->id = id;
 }

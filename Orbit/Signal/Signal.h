@@ -7,14 +7,22 @@
 
 class Signal {
     private:
-        string ID;
+        string id;
+    
+    protected:
+        OrbitalControl* orbitController;
+
     public:
         Signal();
-        ~Signal();
-
-        virtual void signal() = 0;
+        Signal(string);
+        virtual ~Signal();
+        virtual void signal();
+        virtual void message(string);
+        virtual void load(int);
         string getID();
-        void setID(string s);
+        void setID(string);
+        OrbitalControl* getOrbitControl(int);
+        void setOrbitController(OrbitalControl*);
 };
 
 #endif

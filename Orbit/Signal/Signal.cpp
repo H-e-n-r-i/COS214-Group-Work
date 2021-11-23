@@ -1,26 +1,34 @@
 #include "Signal.h"
-#include <string>
 
-using namespace std;
-
-Signal::Signal() //Constructor for Signal
-{
-  ID = "";
+Signal::Signal(){
+  orbitController = new OrbitalControl(60);
 }
 
-Signal::~Signal() //Destructor for Signal
-{}
-
-virtual void Signal::signal() //execute functions  - virtual
-{
+Signal::Signal(string s){
+  id = s;
 }
 
-string Signal::getID() //returns User ID
-{
-  return ID;
+Signal::~Signal(){
+  delete orbitController;
 }
 
-void Signal::setID(string s) //sets User ID
-{
-  ID = s;
+void Signal::signal(){}
+void Signal::message(string){}
+void Signal::load(int){}
+
+string Signal::getID(){
+  return id;
+}
+
+void Signal::setID(string s){
+   id = s;
+}
+
+OrbitalControl* Signal::getOrbitControl(int n){
+  orbitController = new OrbitalControl(n);
+  return orbitController;
+}
+
+void Signal::setOrbitController(OrbitalControl* o){
+  orbitController = o;
 }

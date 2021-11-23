@@ -5,13 +5,10 @@
 #include <string>
 
 class DisconnectSignal : public Signal {
-    private:
-        Signal* s;
     public:
-        DisconnectSignal(std::string);
+        DisconnectSignal();
         ~DisconnectSignal();
-
-        void signal();
+        virtual void signal();
 };
 
 #endif

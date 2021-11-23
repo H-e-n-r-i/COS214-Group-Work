@@ -1,35 +1,27 @@
 #ifndef STARLINKSATELITE_H
 #define STARLINKSATELITE_H
-
-//#include "User.h"
 #include <string>
-
+#include <iostream>
+#include<list>
 using namespace std;
 
-class StarlinkSatelite
-{
+class OrbitalControl;
 
-private:
-    StarlinkSatelite *successor;
-    StarlinkSatelite *head;
-    StarlinkSatelite *curr;
-    //User* user;
-    bool Online;
-    string Name;
+class StarlinkSatelite{
+    private:
+        bool online;
+        string id;
 
-public:
-    StarlinkSatelite();
-    StarlinkSatelite(string n);
-    ~StarlinkSatelite();
-    void sendMessage(std::string, std::string);
-    void connect(std::string);
-    void disconnect(std::string);
-    void setOnline(bool o);
-    bool getOnline();
-    StarlinkSatelite *getHead();
-    string getName();
-    void setName(string q);
-    void appendBatch(StarlinkSatelite *Node);
+    public:
+        StarlinkSatelite(string id);
+        ~StarlinkSatelite();
+        void receiveMessage(string, OrbitalControl*);
+        void connect();
+        void disconnect();
+        void setOnline(bool);
+        bool isOnline();
+        string getID();
+        void setID(string);
 };
 
 #endif

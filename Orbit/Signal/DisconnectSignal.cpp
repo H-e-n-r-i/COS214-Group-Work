@@ -1,19 +1,10 @@
 #include "DisconnectSignal.h"
-#include <string>
 
-using namespace std;
+DisconnectSignal::DisconnectSignal():Signal(){}
 
-DisconnectSignal::DisconnectSignal(string id) //Constructor for DisconnectSignal
-{
-	s->setID(id);
-}
+DisconnectSignal::~DisconnectSignal(){}
 
-DisconnectSignal::~DisconnectSignal() //Destructor for DisconnectSignal
-{
-}
-
-void DisconnectSignal::signal()//execute function
-{
-	OrbitalControl* OC = new OrbitalControl();
-	OC->connect("Disconnect");
+void DisconnectSignal::signal(){
+	cout << "Disconnecting Satelite: [" << getID() << "]" << endl;
+	orbitController->disconnect(getID());
 }

@@ -1,24 +1,25 @@
 #ifndef USER_H
 #define USER_H
-
-#include "./Signal/Signal.h"
+#include<string>
+#include "./Signal/ConnectSignal.h"
+#include "./Signal/DisconnectSignal.h"
+#include "./Signal/MessageSignal.h"
 
 class User {
-
     private:
-        std::string uID;
-        Signal *Connectsignal;
-        Signal* Disconnectsignal;
-        Signal* Messagesignal;
+        Signal *connectSignal;
+        Signal *disconnectSignal;
+        Signal *messageSignal;
+        Signal *loadSignal;
     
     public:
-        User(std::string);
+        User();
         ~User();
-
-        void connect(std::string);
-        void disconnect(std::string);
-        void sendMessage(std::string id, std::string message);
-        //void receiveMessage(std::string id, std::string message);
+        void loadSatitiles(int);
+        void connect(string = "All");
+        void disconnect(string = "All");
+        void sendMessage(string id, string message);
+        //void receiveMessage(string id, string message);
 };
 
 #endif

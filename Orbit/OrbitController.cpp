@@ -1,80 +1,66 @@
 #include "OrbitController.h"
-#include <string>
-#include <iostream>
 
-using namespace std;
 
-OrbitalControl* OrbitalControl::getOrbit() //returns the orbit
-{
-	return orbit;
-}
-
-void OrbitalControl::sendMessage(string q, string w) //sends a message to a satelite
-{
-	satelite->sendMessage(q, w);
-}
-
-void OrbitalControl::connect(string q) //connects a satelite
-{
-	satelite->connect(q);
-}
-
-void OrbitalControl::disconnect(string q) //disconnects a satelite
-{
-	satelite->disconnect(q);
-}
-
-int OrbitalControl::getNumSatelites() //returns the number of satelites
-{
-	return numSatelites;
-}
-
-void OrbitalControl::setNumSatelites(int n) //sets the number of satelites
-{
+OrbitalControl::OrbitalControl(int n){
 	numSatelites = n;
 }
 
-void OrbitalControl::createSatelites(int n) //creates a batch of satelites
-{
-	StarlinkSatelite* next = nullptr;
-	if(n > 60)
-	{
-		cout << "Too many satelites." << endl;
-		return;
+OrbitalControl::~OrbitalControl(){}
+
+void OrbitalControl::sendMessage(string id, string msg){
+	list<StarlinkSatelite*>::iterator it;
+
+	for(it = satelites.begin(); it != satelites.end(); it++){
+		if((*it)->getID() == id){
+			(*it)->receiveMessage(msg, this);
+		}
 	}
-	if(n <= 0)
-	{
-		cout << "No satelites being created." << endl;
-		return;
+}
+
+void OrbitalControl::receiveMessage(string sid, string resp){
+	cout << endl << "[Satelite Respose: ]\n";
+	cout << "\tID: " << sid << endl;
+	cout << "\tResponse: " << resp << endl << endl;
+}
+    
+void OrbitalControl::connect(string id){
+	list<StarlinkSatelite*>::iterator it;
+	for(it = satelites.begin(); it != satelites.end(); it++){
+		if(id != "All"){
+			if((*it)->getID() == id){
+				(*it)->connect();
+			}
+		}else (*it)->connect();
 	}
-	int num = getNumSatelites();
-	num += n;
-	setNumSatelites(num);
-	StarlinkSatelite* curr = new StarlinkSatelite();
-	StarlinkSatelite* head = curr;
-	curr->next = nullptr;
-	for(int q = 1; q <= n, q++)
-	{
-		StarlinkSatelite* Node = new StarlinkSatelite();
-		curr->next = Node;
-		Node->next = nullptr;
+}
+
+void OrbitalControl::disconnect(string id){
+	list<StarlinkSatelite*>::iterator it;
+
+	for(it = satelites.begin(); it != satelites.end(); it++){
+		if(id != "All"){
+			if((*it)->getID() == id){
+				(*it)->disconnect();
+			}
+		}else (*it)->disconnect();
 	}
-	satelite->appendBatch(head);
 }
 
-OrbitalControl::OrbitalControl() //constructor for OrbitalControl
-{
-	numSatelites = 0;
+void OrbitalControl::setNumSatelites(int n){
+	numSatelites = n;
 }
 
-OrbitalControl::~OrbitalControl() //destructor for OrbitalControl
-{
+int OrbitalControl::getNumSatelites(){
+	return numSatelites;
 }
 
-OrbitalControl::OrbitalControl(OrbitalControl& q) 
-{
+void OrbitalControl::createSatelites(){
+	for(int i = 0; i < numSatelites; i++){
+		string tmp = "S"+to_string(i);
+		satelites.push_back(new StarlinkSatelite("S"+to_string(i)));
+	}
 }
 
-OrbitalControl& OrbitalControl::operator=(const OrbitalControl& q)
-{
+list<StarlinkSatelite*> OrbitalControl::getSatelites(){
+	return satelites;
 }

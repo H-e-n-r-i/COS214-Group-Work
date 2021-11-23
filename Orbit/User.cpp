@@ -1,28 +1,33 @@
 #include "User.h" //The Invoker
-#include <string>
-
-using namespace std;
-
-User::User(string q) //Constructor for User
-{
-	uID = q;
+User::User(){
+	connectSignal = new ConnectSignal();
+	disconnectSignal = new DisconnectSignal();
+	messageSignal = new MessageSignal();
 }
 
-User::~User() //Destructor for User
-{
+User::~User(){}
+
+void User::connect(string id){
+	connectSignal->setID(id);
+	connectSignal->signal();
 }
 
-void User::connect(string q) //Calls the ConnectSignal function
-{
-	Connectsignal->signal();
+void User::disconnect(string id){
+	disconnectSignal->setID(id);
+	disconnectSignal->signal();
 }
 
-void User::disconnect(string q) //Calls the DisconnectSignal function
-{
-	Disconnectsignal->signal();
+void User::sendMessage(string id, string message){
+	messageSignal->setID(id);
+	messageSignal->message(message);
 }
 
-void User::sendMessage(string id, string message) //Calls the MessageSignal function
-{
-	Messagesignal->signal();
+void User::loadSatitiles(int n){
+	Signal* sig = new Signal();
+	OrbitalControl* o = sig->getOrbitControl(n);
+	o->createSatelites();
+
+	connectSignal->setOrbitController(o);
+	disconnectSignal->setOrbitController(o);
+	messageSignal->setOrbitController(o);
 }
