@@ -1,0 +1,23 @@
+Charl:
+    Template
+    Observer
+
+Robyn:
+    Command
+    State
+
+Henri:
+    Chain
+    Strategy
+
+Nhlamulo:
+    Prototype
+    Abstract Factory
+    Composite
+    Observer
+    Bridge
+    Strategy
+
+Johan:
+    Mediator
+    Singleton
