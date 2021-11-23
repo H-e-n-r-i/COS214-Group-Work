@@ -1,4 +1,7 @@
+
 COS214-Group-Work
+
+[To run] just make and make run in the system directory
 
 [Nhlamulo]
 
