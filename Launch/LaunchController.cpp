@@ -18,6 +18,7 @@ LaunchController::LaunchController(LaunchController *in)
     this->rocket = in->rocket;
     this->spacecraft = in->spacecraft;
     this->orbit = in->orbit;
+    this->satilite = in->satilite;
     delete in;
 }
 
